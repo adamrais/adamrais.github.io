@@ -1,96 +1,266 @@
 <!DOCTYPE html>
-<html dir="auto" lang="en">
+<html lang="en">
 <head>
-	<meta charset="UTF-8" />
-	<title>My Page Title</title>
-
-	<meta name="description" content="My Page Description" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="icon" href="assets/favicon.png" />
-
-	<meta property="og:title" content="My Page Title" />
-	<meta property="og:description" content="My Page Description" />
-	<meta property="og:image" content="assets/og-image.png" />
-
-	<link rel="stylesheet" href="assets/tobi.css" />
-	<link rel="stylesheet" href="assets/style.css" />
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adam Rais — iOS Developer</title>
+  <meta name="description" content="iOS apps by Adam Rais — Montréal-based developer building tools for everyday life in Québec." />
+  <meta property="og:title" content="Adam Rais — iOS Developer" />
+  <meta property="og:description" content="iOS apps built in Montréal." />
+  <link rel="icon" href="assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #080E20; --amber: #F5A623;
+      --w: #FFFFFF; --w70: rgba(255,255,255,.70);
+      --w40: rgba(255,255,255,.40); --w08: rgba(255,255,255,.08);
+      --w05: rgba(255,255,255,.05);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--w);
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-weight: 300; line-height: 1.6; overflow-x: hidden;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -8%, rgba(245,166,35,.14) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 100% 100%, rgba(14,27,56,.8) 0%, transparent 60%);
+      pointer-events: none; z-index: 0;
+    }
+    body::after {
+      content: ''; position: fixed; inset: 0;
+      background-image: radial-gradient(circle, rgba(245,166,35,.06) 1px, transparent 1px);
+      background-size: 44px 44px; pointer-events: none; z-index: 0;
+    }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 52px;
+      background: rgba(8,14,32,.80);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--w08);
+    }
+    .nav-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600; color: var(--w); text-decoration: none; letter-spacing: -.02em; }
+    .nav-name em { color: var(--amber); font-style: italic; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a { color: var(--w70); text-decoration: none; font-size: .85rem; transition: color .2s; }
+    .nav-links a:hover { color: var(--w); }
+    .nav-dot { display: inline-block; width: 6px; height: 6px; background: var(--amber); border-radius: 50%; animation: blink 2.5s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+    .hero {
+      position: relative; z-index: 1; min-height: 100svh;
+      display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+      padding: 120px 52px 80px; max-width: 1100px; margin: 0 auto;
+      animation: fadeUp .8s ease both;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(245,166,35,.10); border: 1px solid rgba(245,166,35,.22);
+      border-radius: 100px; padding: 6px 14px;
+      font-size: .72rem; font-weight: 500; color: var(--amber);
+      letter-spacing: .1em; text-transform: uppercase; margin-bottom: 30px;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 700; line-height: 1.05; letter-spacing: -.04em; margin-bottom: 24px;
+    }
+    h1 em { color: var(--amber); font-style: italic; }
+    .hero-sub { font-size: 1.1rem; color: var(--w70); max-width: 500px; line-height: 1.75; margin-bottom: 48px; }
+    .hero-scroll { display: flex; align-items: center; gap: 10px; font-size: .8rem; color: var(--w40); text-decoration: none; transition: color .2s; }
+    .hero-scroll:hover { color: var(--w70); }
+    .hero-scroll svg { animation: bounce 2s infinite; }
+    @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(5px)} }
+    .apps { position: relative; z-index: 1; padding: 80px 52px 100px; max-width: 1100px; margin: 0 auto; }
+    .section-label { font-size: .72rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--amber); margin-bottom: 14px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; letter-spacing: -.025em; margin-bottom: 56px; line-height: 1.15; }
+    .apps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .app-card {
+      position: relative; overflow: hidden;
+      background: var(--w05); border: 1px solid var(--w08); border-radius: 26px;
+      padding: 36px 30px 28px; display: flex; flex-direction: column;
+      transition: transform .3s, border-color .3s;
+      animation: fadeUp .7s ease both;
+    }
+    .app-card:nth-child(2) { animation-delay: .1s; }
+    .app-card:nth-child(3) { animation-delay: .2s; }
+    .app-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--card-accent, var(--amber)); border-radius: 26px 26px 0 0;
+    }
+    .app-card::after {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 15% 15%, color-mix(in srgb, var(--card-accent, var(--amber)) 8%, transparent) 0%, transparent 55%);
+      opacity: 0; transition: opacity .3s; pointer-events: none;
+    }
+    .app-card:hover { transform: translateY(-5px); border-color: rgba(255,255,255,.14); }
+    .app-card:hover::after { opacity: 1; }
+    .card-essence  { --card-accent: #F5A623; }
+    .card-metro    { --card-accent: #FFAE00; }
+    .card-everdale { --card-accent: #5CB85C; }
+    .card-icon {
+      width: 72px; height: 72px; border-radius: 18px; overflow: hidden;
+      margin-bottom: 22px; box-shadow: 0 8px 24px rgba(0,0,0,.35);
+      background: #1a2540; flex-shrink: 0;
+    }
+    .card-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .card-icon-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
+    .card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
+    .tag { font-size: .67rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; padding: 3px 9px; border-radius: 100px; background: var(--w08); color: var(--w70); }
+    .tag-accent { background: color-mix(in srgb, var(--card-accent, var(--amber)) 15%, transparent); color: var(--card-accent, var(--amber)); }
+    .card-name { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 600; letter-spacing: -.01em; margin-bottom: 10px; }
+    .card-desc { font-size: .875rem; color: var(--w70); line-height: 1.72; flex: 1; margin-bottom: 28px; }
+    .card-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 6px;
+      border: 1px solid var(--w08); color: var(--w70); background: transparent;
+      padding: 8px 16px; border-radius: 100px; font-size: .8rem; text-decoration: none; transition: all .2s;
+    }
+    .btn-outline:hover { border-color: rgba(255,255,255,.22); color: var(--w); }
+    .btn-accent {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--card-accent, var(--amber)); color: #080E20;
+      padding: 8px 18px; border-radius: 100px; font-size: .8rem; font-weight: 500; text-decoration: none; transition: all .2s;
+    }
+    .btn-accent:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    .about { position: relative; z-index: 1; padding: 0 52px 100px; max-width: 1100px; margin: 0 auto; }
+    .about-card {
+      display: flex; align-items: center; justify-content: space-between; gap: 40px;
+      background: var(--w05); border: 1px solid var(--w08); border-radius: 26px; padding: 44px 48px;
+    }
+    .about-text h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; letter-spacing: -.02em; margin-bottom: 12px; }
+    .about-text p { color: var(--w70); font-size: .9rem; max-width: 480px; }
+    .about-contact { flex-shrink: 0; display: flex; flex-direction: column; gap: 10px; align-items: flex-end; }
+    .contact-link { display: inline-flex; align-items: center; gap: 8px; color: var(--amber); text-decoration: none; font-size: .875rem; transition: opacity .2s; }
+    .contact-link:hover { opacity: .75; }
+    footer {
+      position: relative; z-index: 1; padding: 36px 52px;
+      border-top: 1px solid var(--w08);
+      display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    }
+    .footer-brand { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; }
+    .footer-brand em { color: var(--amber); font-style: italic; }
+    .footer-links { display: flex; gap: 24px; list-style: none; }
+    .footer-links a { font-size: .8rem; color: var(--w40); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: var(--w70); }
+    .footer-copy { font-size: .78rem; color: var(--w40); }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+    @media (max-width: 900px) {
+      nav, .hero, .apps, .about, footer { padding-inline: 24px; }
+      .apps-grid { grid-template-columns: 1fr; max-width: 480px; }
+      .about-card { flex-direction: column; padding: 32px 28px; }
+      .about-contact { align-items: flex-start; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 600px) { nav { padding: 14px 20px; } .nav-links li:not(:last-child){display:none;} }
+  </style>
 </head>
-	<body>
-		<main>
-<header class="app__header container">
-	<div class="app__logo-wrapper"> <img class="app__logo" src="content/image/r7oq3kgfjnaswg86ft4i.png" alt="Everdale Wiki"></div>
-	<div class="app__infos">
-		<h1 class="app__name">Everdale Wiki</h1>
-		<p class="app__description">Welcome to Everdale Wiki, an unofficial guide for the Everdale game</p>
-		<div class="app__buttons app__buttons--desktop">
-			<a href="https://apps.apple.com/can/app/everdale-wiki/id1604681047" class="app__button-ios" target="_blank" title="Get on Appstore">
-				<img src="assets/ios-badge.svg" alt="Get on Appstore">
-			</a>
-		</div>
-	</div>
-</header>
-<div class="app__buttons app__buttons--mobile container">
-	<a href="https://apps.apple.com/can/app/everdale-wiki/id1604681047" class="app__button-ios" target="_blank" title="Get on Appstore">
-		<img src="assets/ios-badge.svg" alt="Get on Appstore">
-	</a>
-</div>
-<section class="app__screenshots app__section">
-	<div class="container">
-		<h2 class="app__section-title">Screenshots</h2>
-	</div>
-	<div class="app__screenshots-wrapper container-desktop">
-		<div class="app__screenshots-list">
-			<a href="content/image/f2vwynevmvxdpl5bt06v.png" class="lightbox">
-				<img src="content/image/f2vwynevmvxdpl5bt06v.png" class="app__screenshot" alt="" />
-			</a>
-			<a href="content/image/32vamvdd07x438wkesc2.png" class="lightbox">
-				<img src="content/image/32vamvdd07x438wkesc2.png" class="app__screenshot" alt="" />
-			</a>
-			<a href="content/image/s0gsby0b6e8pbso6lrfm.png" class="lightbox">
-				<img src="content/image/s0gsby0b6e8pbso6lrfm.png" class="app__screenshot" alt="" />
-			</a>
-			<a href="content/image/krbi5gv60ovc5njjhqvp.png" class="lightbox">
-				<img src="content/image/krbi5gv60ovc5njjhqvp.png" class="app__screenshot" alt="" />
-			</a>
-			<a href="content/image/0oki2cfwpq70uovxvit4.png" class="lightbox">
-				<img src="content/image/0oki2cfwpq70uovxvit4.png" class="app__screenshot" alt="" />
-			</a>
-		</div>
-	</div>
-</section>
-<section class="app__fulldescription app__section container">
-	<h2 class="app__section-title">Description</h2>
-	<div class="app__fulldescription-content">
-		<p>Welcome to Everdale Wiki. a unoficial database for the new Supercell&#39;s mobile game Everdale. In this app, you will find everything you need about the game. The guide covers everything about buildings, items, recipes and more.</p>
+<body>
+  <nav>
+    <a href="/" class="nav-name"><em>Adam</em> Rais</a>
+    <ul class="nav-links">
+      <li><a href="#apps">Apps</a></li>
+      <li><a href="#about">Contact</a></li>
+      <li><span class="nav-dot"></span></li>
+    </ul>
+  </nav>
 
-	</div>
-</section>
-		</main>
-		<footer class="footer">
-			<div class="container">
-				<div class="footer__container">
-					<p class="footer__love">
-						<script>document.write('&copy;' + (new Date()).getFullYear());</script><noscript>&copy;2022</noscript> All rights reserved
-					</p>
-					<ul class="footer__links">
-							<li class="footer__link">
-								<a href="page-2.html">Privacy</a>
-							</li>
-							<li class="footer__link">
-								<a href="page-1.html">Terms&amp;Conditions</a>
-							</li>
-					</ul>
-				</div>
-			</div>
-		</footer>
+  <section class="hero">
+    <div class="hero-eyebrow">iOS Developer · Montréal</div>
+    <h1>Building apps for<br /><em>everyday life</em><br />in Québec.</h1>
+    <p class="hero-sub">I make iOS apps focused on utility, local data, and clean design — tools that solve real problems for people in Montréal and Québec.</p>
+    <a href="#apps" class="hero-scroll">
+      Discover my apps
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </a>
+  </section>
 
-		<script type="text/javascript" src="assets/tobi.min.js" /></script>
-		<script>
-			window.onload = function () {
-				var tobi = new Tobi();
-			};
-		</script>
+  <section class="apps" id="apps">
+    <p class="section-label">Portfolio</p>
+    <h2 class="section-title">My apps</h2>
+    <div class="apps-grid">
 
-  </body>
+      <div class="app-card card-essence">
+        <div class="card-icon"><img src="https://adamrais.github.io/infoEssenceWebsite/icon.png" alt="infoEssence" /></div>
+        <div class="card-tags"><span class="tag tag-accent">iOS</span><span class="tag">Québec</span><span class="tag">Free</span></div>
+        <h3 class="card-name">infoEssence</h3>
+        <p class="card-desc">Real-time gas prices across Québec. Find the cheapest station near you using official data from the Régie de l'énergie, updated every 10 minutes.</p>
+        <div class="card-actions">
+          <a href="https://adamrais.github.io/infoEssenceWebsite/" class="btn-outline" target="_blank">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Website
+          </a>
+          <a href="#" class="btn-accent">
+            <svg width="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            App Store
+          </a>
+        </div>
+      </div>
+
+      <div class="app-card card-metro">
+        <div class="card-icon"><div class="card-icon-placeholder">🚇</div></div>
+        <div class="card-tags"><span class="tag tag-accent">iOS</span><span class="tag">Montréal</span><span class="tag">Free</span></div>
+        <h3 class="card-name">Info Métro</h3>
+        <p class="card-desc">Navigate Montréal's STM metro with ease. Real-time status updates, interactive maps, and schedules — everything you need to get around the city.</p>
+        <div class="card-actions">
+          <a href="https://adamrais.github.io/MontrealMetroApp-website/" class="btn-outline" target="_blank">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Website
+          </a>
+          <a href="#" class="btn-accent">
+            <svg width="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            App Store
+          </a>
+        </div>
+      </div>
+
+      <div class="app-card card-everdale">
+        <div class="card-icon"><img src="content/image/r7oq3kgfjnaswg86ft4i.png" alt="Everdale Wiki" /></div>
+        <div class="card-tags"><span class="tag tag-accent">iOS</span><span class="tag">Game</span></div>
+        <h3 class="card-name">Everdale Wiki</h3>
+        <p class="card-desc">An unofficial companion guide for the Everdale mobile game. Browse items, buildings, and strategies to make the most of your village.</p>
+        <div class="card-actions">
+          <a href="https://apps.apple.com/can/app/everdale-wiki/id1604681047" class="btn-accent" target="_blank">
+            <svg width="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            App Store
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-card">
+      <div class="about-text">
+        <h2>Let's get in touch</h2>
+        <p>I'm an iOS developer based in Montréal, building apps focused on utility and local data. Have a question, feedback, or want to collaborate?</p>
+      </div>
+      <div class="about-contact">
+        <a href="mailto:infometroapp@gmail.com" class="contact-link">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          infometroapp@gmail.com
+        </a>
+        <a href="https://github.com/adamrais" class="contact-link" target="_blank">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          github.com/adamrais
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-brand"><em>Adam</em> Rais</span>
+    <ul class="footer-links">
+      <li><a href="https://adamrais.github.io/infoEssenceWebsite/privacy.html">Privacy — infoEssence</a></li>
+      <li><a href="https://adamrais.github.io/MontrealMetroApp-website/privacy.html">Privacy — Info Métro</a></li>
+    </ul>
+    <span class="footer-copy">© 2025 Adam Rais. All rights reserved.</span>
+  </footer>
+</body>
 </html>
