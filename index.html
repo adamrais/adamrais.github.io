@@ -3,264 +3,531 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Adam Rais — iOS Developer</title>
-  <meta name="description" content="iOS apps by Adam Rais — Montréal-based developer building tools for everyday life in Québec." />
-  <meta property="og:title" content="Adam Rais — iOS Developer" />
-  <meta property="og:description" content="iOS apps built in Montréal." />
+  <title>Adam Rais — iOS Developer, Montréal</title>
+  <meta name="description" content="iOS apps by Adam Rais — a Montréal developer turning public data into everyday tools: gas prices in Québec, the STM metro, and Algerian consular paperwork." />
+  <meta name="theme-color" content="#F4F1EA" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Adam Rais — iOS Developer, Montréal" />
+  <meta property="og:description" content="Four iOS apps built in Montréal, turning public data into everyday tools." />
   <link rel="icon" href="assets/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --bg: #080E20; --amber: #F5A623;
-      --w: #FFFFFF; --w70: rgba(255,255,255,.70);
-      --w40: rgba(255,255,255,.40); --w08: rgba(255,255,255,.08);
-      --w05: rgba(255,255,255,.05);
+      --paper:   #F4F1EA;
+      --paper-2: #ECE7DC;
+      --ink:     #16130F;
+      --signal:  #C4351A;
+      --signal-lift: #FF6A3D;
+      --rule:    rgba(22,19,15,.16);
+      --rule-hard: rgba(22,19,15,.42);
+      --ink-60:  rgba(22,19,15,.62);
+      --ink-40:  rgba(22,19,15,.42);
+      --pad: clamp(18px, 4vw, 46px);
+      --display: 'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      --mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
     }
-    html { scroll-behavior: smooth; }
+
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
     body {
-      background: var(--bg); color: var(--w);
-      font-family: 'DM Sans', system-ui, sans-serif;
-      font-weight: 300; line-height: 1.6; overflow-x: hidden;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--display);
+      font-size: 16px;
+      line-height: 1.6;
+      font-variation-settings: 'wdth' 100;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
-    body::before {
-      content: ''; position: fixed; inset: 0;
-      background:
-        radial-gradient(ellipse 80% 50% at 50% -8%, rgba(245,166,35,.14) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 40% at 100% 100%, rgba(14,27,56,.8) 0%, transparent 60%);
-      pointer-events: none; z-index: 0;
-    }
+
+    /* Paper grain. Multiplied over everything, including the inverted rows. */
     body::after {
-      content: ''; position: fixed; inset: 0;
-      background-image: radial-gradient(circle, rgba(245,166,35,.06) 1px, transparent 1px);
-      background-size: 44px 44px; pointer-events: none; z-index: 0;
+      content: '';
+      position: fixed; inset: 0; z-index: 900; pointer-events: none;
+      opacity: .5; mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.28'/%3E%3C/svg%3E");
     }
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+
+    ::selection { background: var(--signal); color: var(--paper); }
+
+    /* ── Grid frame ─────────────────────────────────────────────
+       Every band carries the same side rules, so they read as two
+       continuous margin lines ruled down the whole page.          */
+    .wrap {
+      width: min(1240px, 100%);
+      margin-inline: auto;
+      padding-inline: var(--pad);
+      border-inline: 1px solid var(--rule);
+    }
+    .bleed { margin-inline: calc(var(--pad) * -1); padding-inline: var(--pad); }
+
+    .mono {
+      font-family: var(--mono);
+      font-size: .67rem;
+      font-weight: 500;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+    }
+
+    /* ── Masthead ──────────────────────────────────────────────── */
+    .masthead {
+      position: sticky; top: 0; z-index: 500;
+      background: var(--paper);
+      border-bottom: 1px solid var(--rule-hard);
+    }
+    .masthead .wrap {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 18px 52px;
-      background: rgba(8,14,32,.80);
-      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
-      border-bottom: 1px solid var(--w08);
+      gap: 20px; height: 58px;
     }
-    .nav-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600; color: var(--w); text-decoration: none; letter-spacing: -.02em; }
-    .nav-name em { color: var(--amber); font-style: italic; }
-    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
-    .nav-links a { color: var(--w70); text-decoration: none; font-size: .85rem; transition: color .2s; }
-    .nav-links a:hover { color: var(--w); }
-    .nav-dot { display: inline-block; width: 6px; height: 6px; background: var(--amber); border-radius: 50%; animation: blink 2.5s infinite; }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
-    .hero {
-      position: relative; z-index: 1; min-height: 100svh;
-      display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
-      padding: 120px 52px 80px; max-width: 1100px; margin: 0 auto;
-      animation: fadeUp .8s ease both;
+    .mark {
+      font-family: var(--display);
+      font-variation-settings: 'wdth' 118;
+      font-weight: 800; font-size: .95rem; letter-spacing: .01em;
+      text-transform: uppercase; text-decoration: none; color: var(--ink);
+      white-space: nowrap;
     }
-    .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(245,166,35,.10); border: 1px solid rgba(245,166,35,.22);
-      border-radius: 100px; padding: 6px 14px;
-      font-size: .72rem; font-weight: 500; color: var(--amber);
-      letter-spacing: .1em; text-transform: uppercase; margin-bottom: 30px;
+    .mark .rule-under { border-bottom: 3px solid var(--signal); padding-bottom: 1px; }
+    .mast-right { display: flex; align-items: center; gap: clamp(14px, 2.6vw, 30px); }
+    .mast-right a { color: var(--ink-60); text-decoration: none; transition: color .2s; }
+    .mast-right a:hover, .mast-right a:focus-visible { color: var(--signal); }
+    .mast-meta { color: var(--ink-40); }
+    .live { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-40); }
+    .live::before {
+      content: ''; width: 6px; height: 6px; background: var(--signal);
+      animation: pulse 2.4s steps(1, end) infinite;
     }
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(3rem, 7vw, 5.5rem);
-      font-weight: 700; line-height: 1.05; letter-spacing: -.04em; margin-bottom: 24px;
+    @keyframes pulse { 0%, 60% { opacity: 1 } 61%, 100% { opacity: .25 } }
+
+    /* ── Hero ──────────────────────────────────────────────────── */
+    .hero .wrap { padding-block: clamp(48px, 9vw, 104px) clamp(30px, 5vw, 54px); }
+
+    .folio {
+      display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+      color: var(--ink-40);
+      padding-bottom: 14px; margin-bottom: clamp(26px, 5vw, 54px);
+      border-bottom: 1px solid var(--rule);
     }
-    h1 em { color: var(--amber); font-style: italic; }
-    .hero-sub { font-size: 1.1rem; color: var(--w70); max-width: 500px; line-height: 1.75; margin-bottom: 48px; }
-    .hero-scroll { display: flex; align-items: center; gap: 10px; font-size: .8rem; color: var(--w40); text-decoration: none; transition: color .2s; }
-    .hero-scroll:hover { color: var(--w70); }
-    .hero-scroll svg { animation: bounce 2s infinite; }
-    @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(5px)} }
-    .apps { position: relative; z-index: 1; padding: 80px 52px 100px; max-width: 1100px; margin: 0 auto; }
-    .section-label { font-size: .72rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--amber); margin-bottom: 14px; }
-    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; letter-spacing: -.025em; margin-bottom: 56px; line-height: 1.15; }
-    .apps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-    .app-card {
-      position: relative; overflow: hidden;
-      background: var(--w05); border: 1px solid var(--w08); border-radius: 26px;
-      padding: 36px 30px 28px; display: flex; flex-direction: column;
-      transition: transform .3s, border-color .3s;
-      animation: fadeUp .7s ease both;
+
+    .headline {
+      font-variation-settings: 'wdth' 112;
+      font-weight: 800;
+      font-size: clamp(2.5rem, 8.2vw, 6.4rem);
+      line-height: .88;
+      letter-spacing: -.035em;
+      text-transform: uppercase;
+      max-width: 15ch;
     }
-    .app-card:nth-child(2) { animation-delay: .1s; }
-    .app-card:nth-child(3) { animation-delay: .2s; }
-    .app-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: var(--card-accent, var(--amber)); border-radius: 26px 26px 0 0;
+    .headline .line { display: block; overflow: hidden; padding-bottom: .04em; }
+    .headline .line > span { display: block; }
+    .headline .hl { color: var(--signal); }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+      gap: clamp(26px, 5vw, 64px);
+      align-items: end;
     }
-    .app-card::after {
-      content: ''; position: absolute; inset: 0;
-      background: radial-gradient(circle at 15% 15%, color-mix(in srgb, var(--card-accent, var(--amber)) 8%, transparent) 0%, transparent 55%);
-      opacity: 0; transition: opacity .3s; pointer-events: none;
+
+    .note {
+      border: 1px solid var(--rule-hard);
+      padding: 20px 20px 18px;
+      background: var(--paper-2);
+      position: relative;
+      max-width: 380px;
     }
-    .app-card:hover { transform: translateY(-5px); border-color: rgba(255,255,255,.14); }
-    .app-card:hover::after { opacity: 1; }
-    .card-essence  { --card-accent: #F5A623; }
-    .card-metro    { --card-accent: #FFAE00; }
-    .card-everdale { --card-accent: #5CB85C; }
-    .card-icon {
-      width: 72px; height: 72px; border-radius: 18px; overflow: hidden;
-      margin-bottom: 22px; box-shadow: 0 8px 24px rgba(0,0,0,.35);
-      background: #1a2540; flex-shrink: 0;
+    .note-tag {
+      position: absolute; top: -.62em; left: 14px;
+      background: var(--paper-2); padding-inline: 7px; color: var(--signal);
     }
-    .card-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .card-icon-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
-    .card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
-    .tag { font-size: .67rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; padding: 3px 9px; border-radius: 100px; background: var(--w08); color: var(--w70); }
-    .tag-accent { background: color-mix(in srgb, var(--card-accent, var(--amber)) 15%, transparent); color: var(--card-accent, var(--amber)); }
-    .card-name { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 600; letter-spacing: -.01em; margin-bottom: 10px; }
-    .card-desc { font-size: .875rem; color: var(--w70); line-height: 1.72; flex: 1; margin-bottom: 28px; }
-    .card-actions { display: flex; gap: 10px; flex-wrap: wrap; }
-    .btn-outline {
-      display: inline-flex; align-items: center; gap: 6px;
-      border: 1px solid var(--w08); color: var(--w70); background: transparent;
-      padding: 8px 16px; border-radius: 100px; font-size: .8rem; text-decoration: none; transition: all .2s;
+    .note p { font-size: .93rem; line-height: 1.62; color: var(--ink-60); }
+    .note p + p { margin-top: 10px; }
+    .note em { font-style: normal; color: var(--ink); }
+
+    .stats {
+      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+      border-top: 1px solid var(--rule-hard);
+      margin-top: clamp(32px, 6vw, 68px);
     }
-    .btn-outline:hover { border-color: rgba(255,255,255,.22); color: var(--w); }
-    .btn-accent {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: var(--card-accent, var(--amber)); color: #080E20;
-      padding: 8px 18px; border-radius: 100px; font-size: .8rem; font-weight: 500; text-decoration: none; transition: all .2s;
+    .stat { padding: 16px 0 4px; border-right: 1px solid var(--rule); }
+    .stat:last-child { border-right: 0; }
+    .stat .k { color: var(--ink-40); display: block; margin-bottom: 7px; }
+    .stat .v {
+      font-family: var(--display);
+      font-variation-settings: 'wdth' 108;
+      font-weight: 700; font-size: clamp(1rem, 2vw, 1.3rem);
+      text-transform: uppercase; letter-spacing: -.01em; line-height: 1.15;
     }
-    .btn-accent:hover { filter: brightness(1.1); transform: translateY(-1px); }
-    .about { position: relative; z-index: 1; padding: 0 52px 100px; max-width: 1100px; margin: 0 auto; }
-    .about-card {
-      display: flex; align-items: center; justify-content: space-between; gap: 40px;
-      background: var(--w05); border: 1px solid var(--w08); border-radius: 26px; padding: 44px 48px;
+
+    /* ── Index of apps ─────────────────────────────────────────── */
+    .index .wrap { padding-block: clamp(40px, 7vw, 86px) 0; }
+
+    .band-head {
+      display: flex; align-items: baseline; justify-content: space-between;
+      gap: 16px; padding-bottom: 12px;
+      border-bottom: 3px solid var(--ink);
     }
-    .about-text h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; letter-spacing: -.02em; margin-bottom: 12px; }
-    .about-text p { color: var(--w70); font-size: .9rem; max-width: 480px; }
-    .about-contact { flex-shrink: 0; display: flex; flex-direction: column; gap: 10px; align-items: flex-end; }
-    .contact-link { display: inline-flex; align-items: center; gap: 8px; color: var(--amber); text-decoration: none; font-size: .875rem; transition: opacity .2s; }
-    .contact-link:hover { opacity: .75; }
-    footer {
-      position: relative; z-index: 1; padding: 36px 52px;
-      border-top: 1px solid var(--w08);
-      display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    .band-head h2 {
+      font-variation-settings: 'wdth' 118;
+      font-weight: 800; font-size: clamp(1.15rem, 2.4vw, 1.6rem);
+      text-transform: uppercase; letter-spacing: -.01em;
     }
-    .footer-brand { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; }
-    .footer-brand em { color: var(--amber); font-style: italic; }
-    .footer-links { display: flex; gap: 24px; list-style: none; }
-    .footer-links a { font-size: .8rem; color: var(--w40); text-decoration: none; transition: color .2s; }
-    .footer-links a:hover { color: var(--w70); }
-    .footer-copy { font-size: .78rem; color: var(--w40); }
-    @keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
-    @media (max-width: 900px) {
-      nav, .hero, .apps, .about, footer { padding-inline: 24px; }
-      .apps-grid { grid-template-columns: 1fr; max-width: 480px; }
-      .about-card { flex-direction: column; padding: 32px 28px; }
-      .about-contact { align-items: flex-start; }
-      footer { flex-direction: column; align-items: flex-start; }
+    .band-head .mono { color: var(--ink-40); }
+
+    .entry {
+      --fg: var(--ink);
+      --fg-soft: var(--ink-60);
+      --fg-faint: var(--ink-40);
+      --hair: var(--rule);
+      --sig: var(--signal);
+      position: relative; isolation: isolate;
+      color: var(--fg);
+      border-bottom: 1px solid var(--rule);
+      padding-block: clamp(24px, 3.6vw, 38px);
+      transition: color .4s ease;
     }
-    @media (max-width: 600px) { nav { padding: 14px 20px; } .nav-links li:not(:last-child){display:none;} }
+    .entry::before {
+      content: ''; position: absolute; inset: 0; z-index: -1;
+      background: var(--ink);
+      transform: scaleX(0); transform-origin: left center;
+      transition: transform .5s cubic-bezier(.22,.8,.24,1);
+    }
+    .entry::after {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
+      background: var(--signal); z-index: -1;
+      transform: scaleY(0); transform-origin: bottom;
+      transition: transform .45s cubic-bezier(.22,.8,.24,1) .06s;
+    }
+    .entry:hover, .entry:focus-within {
+      --fg: var(--paper);
+      --fg-soft: rgba(244,241,234,.7);
+      --fg-faint: rgba(244,241,234,.5);
+      --hair: rgba(244,241,234,.26);
+      --sig: var(--signal-lift);
+    }
+    .entry:hover::before, .entry:focus-within::before { transform: scaleX(1); }
+    .entry:hover::after, .entry:focus-within::after { transform: scaleY(1); }
+
+    .entry-inner {
+      display: grid;
+      grid-template-columns: 2.6rem 72px minmax(0, 1fr) minmax(0, 15rem);
+      gap: clamp(14px, 2.4vw, 32px);
+      align-items: start;
+    }
+
+    .num { font-family: var(--mono); font-size: .8rem; font-weight: 500; color: var(--sig); padding-top: 4px; transition: color .4s ease; }
+
+    .glyph {
+      width: 72px; height: 72px; border: 1px solid var(--hair);
+      border-radius: 16px; overflow: hidden; background: var(--paper-2);
+      transition: border-color .4s ease;
+    }
+    .glyph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .entry-name {
+      font-variation-settings: 'wdth' 112;
+      font-weight: 800; font-size: clamp(1.5rem, 3.2vw, 2.35rem);
+      line-height: .98; letter-spacing: -.03em; text-transform: uppercase;
+      margin-bottom: 9px;
+    }
+    .role { color: var(--sig); display: block; margin-bottom: 14px; transition: color .4s ease; }
+    .entry-desc { font-size: .95rem; line-height: 1.66; color: var(--fg-soft); max-width: 54ch; transition: color .4s ease; }
+    .footnote { font-size: .78rem; line-height: 1.55; color: var(--fg-faint); max-width: 54ch; margin-top: 12px; padding-left: 12px; border-left: 1px solid var(--hair); transition: color .4s ease, border-color .4s ease; }
+
+    .facts { border-top: 1px solid var(--hair); margin-top: 16px; max-width: 34rem; transition: border-color .4s ease; }
+    .fact { display: flex; gap: 14px; padding: 7px 0; border-bottom: 1px solid var(--hair); color: var(--fg-faint); transition: border-color .4s ease, color .4s ease; }
+    .fact dt { flex: 0 0 6.2rem; }
+    .fact dd { color: var(--fg-soft); letter-spacing: .1em; }
+
+    .acts { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; padding-top: 4px; }
+    .act {
+      display: inline-flex; align-items: center; gap: 9px;
+      font-family: var(--mono); font-size: .69rem; font-weight: 500;
+      letter-spacing: .15em; text-transform: uppercase; text-decoration: none;
+      color: var(--fg); padding-bottom: 4px;
+      border-bottom: 1px solid var(--hair);
+      transition: color .25s, border-color .25s, gap .25s;
+    }
+    .act .arw { transition: transform .25s cubic-bezier(.22,.8,.24,1); }
+    .act:hover, .act:focus-visible { color: var(--sig); border-color: var(--sig); }
+    .act:hover .arw, .act:focus-visible .arw { transform: translateX(4px); }
+    .act-primary { border-bottom-width: 2px; border-color: var(--sig); }
+
+    .chip {
+      display: inline-block; border: 1px solid var(--sig); color: var(--sig);
+      padding: 5px 10px; transition: color .4s ease, border-color .4s ease;
+    }
+
+    /* ── Colophon ──────────────────────────────────────────────── */
+    .colophon .wrap { padding-block: clamp(44px, 7vw, 90px) clamp(36px, 6vw, 70px); }
+    .colophon-grid {
+      display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+      gap: clamp(28px, 5vw, 70px); margin-top: clamp(26px, 4vw, 44px);
+    }
+    .statement {
+      font-variation-settings: 'wdth' 104;
+      font-weight: 500; font-size: clamp(1.15rem, 2.5vw, 1.85rem);
+      line-height: 1.28; letter-spacing: -.02em; max-width: 22ch;
+    }
+    .statement + p { margin-top: 18px; color: var(--ink-60); font-size: .95rem; max-width: 46ch; }
+    .contact { border-top: 1px solid var(--rule-hard); }
+    .contact a {
+      display: flex; align-items: baseline; justify-content: space-between; gap: 14px;
+      padding: 15px 0; border-bottom: 1px solid var(--rule);
+      text-decoration: none; color: var(--ink); transition: color .2s, padding-left .25s;
+    }
+    .contact a:hover, .contact a:focus-visible { color: var(--signal); padding-left: 8px; }
+    .contact .who { font-family: var(--mono); font-size: .67rem; letter-spacing: .17em; text-transform: uppercase; color: var(--ink-40); flex: 0 0 auto; }
+    .contact .what { font-size: .95rem; text-align: right; word-break: break-word; }
+
+    /* ── Footer ────────────────────────────────────────────────── */
+    footer { border-top: 3px solid var(--ink); }
+    footer .wrap {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+      gap: 12px 26px; padding-block: 22px 26px; color: var(--ink-40);
+    }
+    footer a { color: var(--ink-60); text-decoration: none; transition: color .2s; }
+    footer a:hover, footer a:focus-visible { color: var(--signal); }
+    .foot-links { display: flex; flex-wrap: wrap; gap: 12px 22px; list-style: none; }
+
+    :focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
+
+    /* ── Load choreography ─────────────────────────────────────── */
+    .headline .line > span { transform: translateY(105%); animation: rise .95s cubic-bezier(.16,1,.3,1) forwards; }
+    .headline .line:nth-child(2) > span { animation-delay: .09s; }
+    .headline .line:nth-child(3) > span { animation-delay: .18s; }
+    @keyframes rise { to { transform: translateY(0); } }
+
+    .fade { opacity: 0; animation: fade .8s ease forwards; }
+    .d1 { animation-delay: .30s } .d2 { animation-delay: .40s } .d3 { animation-delay: .50s }
+    @keyframes fade { from { opacity: 0; transform: translateY(14px) } to { opacity: 1; transform: none } }
+
+    /* ── Narrow ────────────────────────────────────────────────── */
+    @media (max-width: 940px) {
+      .hero-grid { grid-template-columns: 1fr; align-items: start; }
+      .note { max-width: none; }
+      .colophon-grid { grid-template-columns: 1fr; }
+      .entry-inner { grid-template-columns: 2.2rem 60px minmax(0, 1fr); }
+      .glyph { width: 60px; height: 60px; border-radius: 14px; }
+      .acts { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 18px; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .stat { border-bottom: 1px solid var(--rule); padding-right: 12px; }
+      .stat:nth-child(2n) { border-right: 0; }
+      .stat:nth-last-child(-n+2) { border-bottom: 0; }
+    }
+    @media (max-width: 620px) {
+      .mast-meta { display: none; }
+      .entry-inner { grid-template-columns: 1.9rem minmax(0, 1fr); }
+      .glyph { grid-row: 1; grid-column: 2; margin-bottom: 14px; }
+      .entry-body { grid-column: 2; }
+      .fact dt { flex-basis: 5.2rem; }
+      .headline { font-size: clamp(2.1rem, 11vw, 3.4rem); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0ms !important; transition-duration: .01ms !important; }
+      .headline .line > span { transform: none; }
+      .fade { opacity: 1; }
+    }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="/" class="nav-name"><em>Adam</em> Rais</a>
-    <ul class="nav-links">
-      <li><a href="#apps">Apps</a></li>
-      <li><a href="#about">Contact</a></li>
-      <li><span class="nav-dot"></span></li>
-    </ul>
-  </nav>
 
-  <section class="hero">
-    <div class="hero-eyebrow">iOS Developer · Montréal</div>
-    <h1>Building apps for<br /><em>everyday life</em><br />in Québec.</h1>
-    <p class="hero-sub">I make iOS apps focused on utility, local data, and clean design — tools that solve real problems for people in Montréal and Québec.</p>
-    <a href="#apps" class="hero-scroll">
-      Discover my apps
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-    </a>
-  </section>
-
-  <section class="apps" id="apps">
-    <p class="section-label">Portfolio</p>
-    <h2 class="section-title">My apps</h2>
-    <div class="apps-grid">
-
-      <div class="app-card card-essence">
-        <div class="card-icon"><img src="https://infoessence.up.railway.app/icon.png" alt="infoEssence" /></div>
-        <div class="card-tags"><span class="tag tag-accent">iOS</span><span class="tag">Québec</span><span class="tag">Free</span></div>
-        <h3 class="card-name">infoEssence</h3>
-        <p class="card-desc">Real-time gas prices across Québec. Find the cheapest station near you using official data from the Régie de l'énergie, updated every 10 minutes.</p>
-        <div class="card-actions">
-          <a href="https://infoessence.up.railway.app/index.html" class="btn-outline" target="_blank">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            Website
-          </a>
-          <a href="https://apps.apple.com/ca/app/infoessence/id6761513458?l=fr-CA" class="btn-accent" target="_blank">
-            <svg width="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-            App Store
-          </a>
-        </div>
-      </div>
-
-      <div class="app-card card-metro">
-        <div class="card-icon"><div class="card-icon-placeholder">🚇</div></div>
-        <div class="card-tags"><span class="tag tag-accent">iOS</span><span class="tag">Montréal</span><span class="tag">Free</span></div>
-        <h3 class="card-name">Info Métro</h3>
-        <p class="card-desc">Navigate Montréal's STM metro with ease. Real-time status updates, interactive maps, and schedules — everything you need to get around the city.</p>
-        <div class="card-actions">
-          <a href="https://adamrais.github.io/MontrealMetroApp-website/" class="btn-outline" target="_blank">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            Website
-          </a>
-          <a href="https://apps.apple.com/ca/app/infometro/id6757133462?l=fr-CA" class="btn-accent" target="_blank">
-            <svg width="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-            App Store
-          </a>
-        </div>
-      </div>
-
-      <div class="app-card card-everdale">
-        <div class="card-icon"><img src="content/image/r7oq3kgfjnaswg86ft4i.png" alt="Everdale Wiki" /></div>
-        <div class="card-tags"><span class="tag tag-accent">iOS</span><span class="tag">Game</span></div>
-        <h3 class="card-name">Everdale Wiki</h3>
-        <p class="card-desc">An unofficial companion guide for the Everdale mobile game. Browse items, buildings, and strategies to make the most of your village.</p>
-        <div class="card-actions">
-          <a href="https://apps.apple.com/can/app/everdale-wiki/id1604681047" class="btn-accent" target="_blank">
-            <svg width="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-            App Store
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="about" id="about">
-    <div class="about-card">
-      <div class="about-text">
-        <h2>Let's get in touch</h2>
-        <p>I'm an iOS developer based in Montréal, building apps focused on utility and local data. Have a question, feedback, or want to collaborate?</p>
-      </div>
-      <div class="about-contact">
-        <a href="mailto:adamrais14@gmail.com" class="contact-link">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          adamrais14@gmail.com
-        </a>
-        <a href="https://github.com/adamrais" class="contact-link" target="_blank">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-          github.com/adamrais
-        </a>
+  <header class="masthead">
+    <div class="wrap">
+      <a href="#top" class="mark"><span class="rule-under">Adam Rais</span></a>
+      <div class="mast-right mono">
+        <span class="mast-meta">Montréal · QC</span>
+        <a href="#index">Index</a>
+        <a href="#colophon">Colophon</a>
+        <span class="live">Shipping</span>
       </div>
     </div>
-  </section>
+  </header>
+
+  <main id="top">
+
+    <section class="hero">
+      <div class="wrap">
+
+        <div class="folio mono fade">
+          <span>Folio 01 — iOS Portfolio</span>
+          <span>Four apps — MMXXVI</span>
+        </div>
+
+        <div class="hero-grid">
+          <h1 class="headline">
+            <span class="line"><span>I build iOS apps</span></span>
+            <span class="line"><span>for <span class="hl">public data</span></span></span>
+            <span class="line"><span>in Montréal.</span></span>
+          </h1>
+
+          <div class="note fade d1">
+            <span class="note-tag mono">Scope</span>
+            <p>Gas prices from the <em>Régie de l'énergie</em>. The <em>STM</em> metro. Paperwork at the <em>Algerian Consulate</em>. Information that already exists in public, made usable on a phone.</p>
+            <p>Built solo in Montréal — Swift, SwiftUI, no trackers, no accounts.</p>
+          </div>
+        </div>
+
+        <dl class="stats mono fade d2">
+          <div class="stat"><dt class="k">Shipped</dt><dd class="v">4 apps</dd></div>
+          <div class="stat"><dt class="k">Platform</dt><dd class="v">iOS 18+</dd></div>
+          <div class="stat"><dt class="k">Stack</dt><dd class="v">Swift · SwiftUI</dd></div>
+          <div class="stat"><dt class="k">Langues</dt><dd class="v">FR · EN</dd></div>
+        </dl>
+
+      </div>
+    </section>
+
+    <section class="index" id="index">
+      <div class="wrap">
+        <div class="band-head">
+          <h2>Index of apps</h2>
+          <span class="mono">Newest first — 04 entries</span>
+        </div>
+
+        <!-- 01 ─────────────────────────────────────────────────── -->
+        <article class="entry bleed">
+          <div class="entry-inner">
+            <div class="num">01</div>
+            <div class="glyph"><img src="assets/infoconsulat-icon.png" alt="infoConsulat app icon" width="72" height="72" loading="lazy" /></div>
+            <div class="entry-body">
+              <h3 class="entry-name">infoConsulat</h3>
+              <span class="role mono">Consular services · Montréal · Français</span>
+              <p class="entry-desc">Every dealing with the Consulate General of Algeria in Montréal, gathered into one French-language app. Recover an appointment from your email address when the confirmation never arrived, follow a biometric passport, CNIBE or national-service file, and fill the official forms in the app before sharing or printing them.</p>
+              <dl class="facts mono">
+                <div class="fact"><dt>Follows</dt><dd>Passport · CNIBE · Service national · 12S</dd></div>
+                <div class="fact"><dt>Source</dt><dd>Consulate tracking services</dd></div>
+                <div class="fact"><dt>Price</dt><dd>Free</dd></div>
+              </dl>
+              <p class="footnote">An independent app, made by a national for the Algerian community of Montréal. Not published or endorsed by the Consulate General of Algeria.</p>
+            </div>
+            <div class="acts">
+              <span class="chip mono">Coming soon</span>
+              <a class="act" href="mailto:adamrais14@gmail.com?subject=infoConsulat%20—%20notify%20me%20at%20launch">Notify me <span class="arw">→</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 02 ─────────────────────────────────────────────────── -->
+        <article class="entry bleed">
+          <div class="entry-inner">
+            <div class="num">02</div>
+            <div class="glyph"><img src="assets/infoessence-icon.png" alt="infoEssence app icon" width="72" height="72" loading="lazy" /></div>
+            <div class="entry-body">
+              <h3 class="entry-name">infoEssence</h3>
+              <span class="role mono">Fuel prices · Québec</span>
+              <p class="entry-desc">Real-time gas prices across Québec. Find the cheapest station near you from the official Régie de l'énergie feed, refreshed every ten minutes — no login, no ads between you and the number.</p>
+              <dl class="facts mono">
+                <div class="fact"><dt>Source</dt><dd>Régie de l'énergie du Québec</dd></div>
+                <div class="fact"><dt>Refresh</dt><dd>Every 10 minutes</dd></div>
+                <div class="fact"><dt>Price</dt><dd>Free</dd></div>
+              </dl>
+            </div>
+            <div class="acts">
+              <a class="act act-primary" href="https://apps.apple.com/ca/app/infoessence/id6761513458?l=fr-CA" target="_blank" rel="noopener">App Store <span class="arw">→</span></a>
+              <a class="act" href="https://infoessence.up.railway.app/index.html" target="_blank" rel="noopener">Website <span class="arw">↗</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 03 ─────────────────────────────────────────────────── -->
+        <article class="entry bleed">
+          <div class="entry-inner">
+            <div class="num">03</div>
+            <div class="glyph"><img src="assets/infometro-icon.png" alt="Info Métro app icon" width="72" height="72" loading="lazy" /></div>
+            <div class="entry-body">
+              <h3 class="entry-name">Info Métro</h3>
+              <span class="role mono">Transit · STM · Montréal</span>
+              <p class="entry-desc">The STM metro at a glance: live line status, an interactive map and schedules, so you know whether to run for the train before you reach the turnstile.</p>
+              <dl class="facts mono">
+                <div class="fact"><dt>Source</dt><dd>Société de transport de Montréal</dd></div>
+                <div class="fact"><dt>Covers</dt><dd>4 lines · 68 stations</dd></div>
+                <div class="fact"><dt>Price</dt><dd>Free</dd></div>
+              </dl>
+            </div>
+            <div class="acts">
+              <a class="act act-primary" href="https://apps.apple.com/ca/app/infometro/id6757133462?l=fr-CA" target="_blank" rel="noopener">App Store <span class="arw">→</span></a>
+              <a class="act" href="https://adamrais.github.io/MontrealMetroApp-website/" target="_blank" rel="noopener">Website <span class="arw">↗</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 04 ─────────────────────────────────────────────────── -->
+        <article class="entry bleed">
+          <div class="entry-inner">
+            <div class="num">04</div>
+            <div class="glyph"><img src="assets/everdale-icon.png" alt="Everdale Wiki app icon" width="72" height="72" loading="lazy" /></div>
+            <div class="entry-body">
+              <h3 class="entry-name">Everdale Wiki</h3>
+              <span class="role mono">Companion guide · Game</span>
+              <p class="entry-desc">An unofficial companion for the Everdale village builder — items, buildings and strategy, browsable without leaving the game for a browser tab.</p>
+              <dl class="facts mono">
+                <div class="fact"><dt>Kind</dt><dd>Unofficial companion</dd></div>
+                <div class="fact"><dt>Price</dt><dd>Free</dd></div>
+              </dl>
+            </div>
+            <div class="acts">
+              <a class="act act-primary" href="https://apps.apple.com/ca/app/everdale-wiki/id1604681047" target="_blank" rel="noopener">App Store <span class="arw">→</span></a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="colophon" id="colophon">
+      <div class="wrap">
+        <div class="band-head">
+          <h2>Colophon</h2>
+          <span class="mono">Contact · Legal</span>
+        </div>
+
+        <div class="colophon-grid">
+          <div>
+            <p class="statement">Independent iOS developer, working out of Montréal on tools for the place I live in.</p>
+            <p>Most of what I build starts the same way: a public dataset that exists but is painful to reach, and a phone that should have made it easy. If you have a question, feedback, or a dataset that deserves an app — write to me.</p>
+          </div>
+
+          <nav class="contact">
+            <a href="mailto:adamrais14@gmail.com">
+              <span class="who">Email</span>
+              <span class="what">adamrais14@gmail.com</span>
+            </a>
+            <a href="https://github.com/adamrais" target="_blank" rel="noopener">
+              <span class="who">Code</span>
+              <span class="what">github.com/adamrais</span>
+            </a>
+            <a href="https://infoessence.up.railway.app/privacy.html" target="_blank" rel="noopener">
+              <span class="who">Privacy</span>
+              <span class="what">infoEssence</span>
+            </a>
+            <a href="https://adamrais.github.io/MontrealMetroApp-website/privacy.html" target="_blank" rel="noopener">
+              <span class="who">Privacy</span>
+              <span class="what">Info Métro</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <footer>
-    <span class="footer-brand"><em>Adam</em> Rais</span>
-    <ul class="footer-links">
-      <li><a href="https://infoessence.up.railway.app/privacy.html">Privacy — infoEssence</a></li>
-      <li><a href="https://adamrais.github.io/MontrealMetroApp-website/privacy.html">Privacy — Info Métro</a></li>
-    </ul>
-    <span class="footer-copy">© 2025 Adam Rais. All rights reserved.</span>
+    <div class="wrap mono">
+      <span>© 2026 Adam Rais — Montréal, Québec</span>
+      <ul class="foot-links">
+        <li><a href="#index">Index</a></li>
+        <li><a href="#colophon">Colophon</a></li>
+        <li><a href="mailto:adamrais14@gmail.com">Email</a></li>
+      </ul>
+      <span>Set in Archivo &amp; IBM Plex Mono</span>
+    </div>
   </footer>
+
 </body>
 </html>
