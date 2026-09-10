@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr-CA" data-lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assistance — infoConsulat</title>
+  <meta name="description" content="Assistance pour l'application infoConsulat, en français et en anglais : questions fréquentes sur les suivis, les formulaires et les rendez-vous, et comment nous joindre." />
+  <meta name="theme-color" content="#F4F1EA" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Assistance — infoConsulat" />
+  <meta property="og:description" content="Questions fréquentes et contact pour l'application infoConsulat." />
+  <link rel="icon" href="assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/doc.css" />
+  <script>
+    /* Settles the language before first paint. A stored choice wins; failing
+       that the browser's own, defaulting to French — the app's language. */
+    (function () {
+      var l;
+      try { l = localStorage.getItem('lang'); } catch (e) {}
+      if (l !== 'fr' && l !== 'en') {
+        l = (navigator.language || 'fr').toLowerCase().indexOf('en') === 0 ? 'en' : 'fr';
+      }
+      document.documentElement.dataset.lang = l;
+      document.documentElement.lang = l === 'fr' ? 'fr-CA' : 'en';
+    })();
+  </script>
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="wrap">
+      <a href="/" class="mark"><span class="rule-under">Adam Rais</span></a>
+      <div class="mast-right mono">
+        <span class="mast-meta">infoConsulat</span>
+        <a href="privacy-infoconsulat.html"><span class="l-fr">Confidentialité</span><span class="l-en">Privacy</span></a>
+        <a href="/"><span class="l-fr">Accueil</span><span class="l-en">Home</span></a>
+        <span class="langs" role="group" aria-label="Language / Langue">
+          <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+          <span class="sep" aria-hidden="true">/</span>
+          <button type="button" data-set-lang="fr" aria-pressed="true">FR</button>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main class="doc">
+    <div class="wrap">
+
+      <!-- ══════════════════ FRANÇAIS ══════════════════ -->
+      <div class="l-fr">
+
+        <div class="folio mono">
+          <span>infoConsulat — Document 02</span>
+          <span>Assistance</span>
+        </div>
+
+        <h1 class="doc-title"><span class="hl">Assistance</span> infoConsulat</h1>
+
+        <p class="doc-lede">Une question, un suivi qui ne répond pas, une information erronée ? Écrivez-moi. L'application est faite et maintenue par une seule personne, à Montréal.</p>
+
+        <div class="stamp mono">
+          <span>Application <b>infoConsulat</b></span>
+          <span>Version <b>1.0</b></span>
+          <span>Langue <b>Français</b></span>
+          <span>Réponse sous <b>2 à 3 jours</b></span>
+        </div>
+
+        <section class="sec">
+          <h2 data-n="01">Nous joindre</h2>
+          <p>Le courriel est le seul canal d'assistance, et il aboutit directement chez le développeur. Précisez la démarche concernée et votre version d'iOS ; n'incluez <strong>ni NIN, ni numéro de dossier, ni pièce d'identité</strong> — je n'en ai pas besoin et je ne peux rien en faire.</p>
+          <div class="rows">
+            <a href="mailto:adamrais14@gmail.com?subject=infoConsulat%20—%20assistance">
+              <span class="who">Courriel</span>
+              <span class="what">adamrais14@gmail.com</span>
+            </a>
+            <a href="privacy-infoconsulat.html">
+              <span class="who">Confidentialité</span>
+              <span class="what">Politique de confidentialité</span>
+            </a>
+            <div class="row">
+              <span class="who">Éditeur</span>
+              <span class="what">Adam Rais — Montréal, Québec, Canada</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="02">Questions fréquentes</h2>
+
+          <p><strong>Mon rendez-vous n'apparaît pas.</strong> Le suivi cherche l'adresse courriel <em>exacte</em> avec laquelle la réservation a été faite. Essayez l'autre adresse que vous utilisez, sans espace avant ni après. Si le rendez-vous a été pris par un proche, c'est son adresse qu'il faut saisir.</p>
+
+          <p><strong>Le suivi passeport ou service national ne répond pas.</strong> Ces deux suivis interrogent un serveur du Consulat qui est régulièrement hors service, en particulier le soir et la fin de semaine. L'application ne peut rien y faire : réessayez plus tard. Si l'échec dure plusieurs jours, signalez-le-moi.</p>
+
+          <p><strong>Le statut affiché me paraît faux ou périmé.</strong> L'application ne calcule rien : elle affiche mot pour mot ce que le service de suivi du Consulat lui répond. Si la réponse est erronée, c'est au Consulat qu'il faut s'adresser — je n'ai aucun accès à vos dossiers.</p>
+
+          <p><strong>Les pièces à fournir ont changé.</strong> Le texte des démarches est repris du site public du Consulat, sans reformulation, et vérifié à chaque mise à jour. S'il a changé depuis, écrivez-moi et je corrigerai ; en attendant, le site du Consulat fait foi.</p>
+
+          <p><strong>Mon formulaire rempli a disparu.</strong> Les brouillons sont enregistrés sur l'appareil seulement, sans copie ailleurs. Supprimer l'application, ou la réinstaller sur un autre téléphone, les efface définitivement — pensez à partager ou imprimer un formulaire important une fois rempli.</p>
+
+          <p><strong>L'application est-elle officielle ?</strong> Non. Voir plus bas.</p>
+
+          <p><strong>Puis-je faire une démarche depuis l'application ?</strong> Non. infoConsulat renseigne, suit et prépare des formulaires ; les demandes elles-mêmes se déposent auprès du Consulat ou sur les portails officiels, vers lesquels l'application vous dirige.</p>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="03">S'adresser au Consulat</h2>
+          <p>Pour tout ce qui touche à un dossier — une date, une pièce manquante, un statut contesté — c'est le Consulat qu'il faut joindre, et non moi. Ses coordonnées et ses horaires à jour sont publiés sur son site :</p>
+          <div class="rows">
+            <a href="https://www.consulatalgeriemontreal.com/v1.0/services_aux_algeriens/index.html" target="_blank" rel="noopener">
+              <span class="who">Site officiel</span>
+              <span class="what">consulatalgeriemontreal.com</span>
+            </a>
+            <a href="https://bookings.cloud.microsoft/book/Rendezvous_ConsulatGeneralAlgerieaMontreal@consulatalgeriemontreal.ca/" target="_blank" rel="noopener">
+              <span class="who">Rendez-vous</span>
+              <span class="what">Prise de rendez-vous en ligne</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="04">Signaler une erreur</h2>
+          <p>Une coquille, un montant obsolète, un formulaire qui ne s'ouvre pas, une pièce à fournir qui n'est plus exigée : ce sont les signalements les plus utiles, et ils sont corrigés en priorité. Indiquez la démarche et, si possible, la ligne concernée.</p>
+          <div class="callout">
+            <span class="callout-tag mono">Indépendance</span>
+            <p>infoConsulat est une application indépendante, réalisée par un ressortissant pour la communauté algérienne de Montréal. Elle <strong>n'est ni éditée ni approuvée par le Consulat Général d'Algérie à Montréal</strong>. Les informations proviennent de son site public et peuvent évoluer ; en cas de doute, contactez directement le Consulat.</p>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- ══════════════════ ENGLISH ══════════════════ -->
+      <div class="l-en">
+
+        <div class="folio mono">
+          <span>infoConsulat — Document 02</span>
+          <span>Support</span>
+        </div>
+
+        <h1 class="doc-title">infoConsulat <span class="hl">support</span></h1>
+
+        <p class="doc-lede">A question, a lookup that will not answer, information that is wrong? Write to me. The app is made and maintained by one person, in Montréal.</p>
+
+        <div class="stamp mono">
+          <span>App <b>infoConsulat</b></span>
+          <span>Version <b>1.0</b></span>
+          <span>App language <b>French</b></span>
+          <span>Reply within <b>2–3 days</b></span>
+        </div>
+
+        <section class="sec">
+          <h2 data-n="01">Contact</h2>
+          <p>Email is the only support channel, and it reaches the developer directly. Say which procedure is involved and which version of iOS you are on; do <strong>not</strong> include a NIN, a file number or any identity document — I do not need them and can do nothing with them.</p>
+          <div class="rows">
+            <a href="mailto:adamrais14@gmail.com?subject=infoConsulat%20—%20support">
+              <span class="who">Email</span>
+              <span class="what">adamrais14@gmail.com</span>
+            </a>
+            <a href="privacy-infoconsulat.html">
+              <span class="who">Privacy</span>
+              <span class="what">Privacy policy</span>
+            </a>
+            <div class="row">
+              <span class="who">Publisher</span>
+              <span class="what">Adam Rais — Montréal, Québec, Canada</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="02">Frequent questions</h2>
+
+          <p><strong>My appointment does not show up.</strong> The lookup searches for the <em>exact</em> email address the booking was made with. Try the other address you use, with no space before or after it. If a relative booked it for you, it is their address you need to enter.</p>
+
+          <p><strong>The passport or national-service lookup will not answer.</strong> Both query a Consulate server that is regularly down, particularly in the evening and at weekends. The app can do nothing about it: try again later. If it fails for several days running, tell me.</p>
+
+          <p><strong>The status shown looks wrong or out of date.</strong> The app calculates nothing: it shows word for word what the Consulate's tracking service replies. If that reply is wrong, the Consulate is who to ask — I have no access to your file.</p>
+
+          <p><strong>The required documents have changed.</strong> The text of each procedure is taken from the Consulate's public website without rewording, and checked at each update. If it has changed since, write to me and I will correct it; until then, the Consulate's website is what counts.</p>
+
+          <p><strong>My filled-in form has disappeared.</strong> Drafts are saved on the device only, with no copy anywhere else. Deleting the app, or reinstalling it on another phone, erases them for good — share or print an important form once you have filled it in.</p>
+
+          <p><strong>Is this the official app?</strong> No. See below.</p>
+
+          <p><strong>Can I complete a procedure inside the app?</strong> No. infoConsulat explains, tracks and prepares forms; the applications themselves are filed with the Consulate or on the official portals, which the app points you to.</p>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="03">Contacting the Consulate</h2>
+          <p>For anything touching a file — a date, a missing document, a status you dispute — the Consulate is who to contact, not me. Its current details and opening hours are published on its website:</p>
+          <div class="rows">
+            <a href="https://www.consulatalgeriemontreal.com/v1.0/services_aux_algeriens/index.html" target="_blank" rel="noopener">
+              <span class="who">Official site</span>
+              <span class="what">consulatalgeriemontreal.com</span>
+            </a>
+            <a href="https://bookings.cloud.microsoft/book/Rendezvous_ConsulatGeneralAlgerieaMontreal@consulatalgeriemontreal.ca/" target="_blank" rel="noopener">
+              <span class="who">Appointments</span>
+              <span class="what">Online booking</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="04">Reporting an error</h2>
+          <p>A typo, an out-of-date fee, a form that will not open, a document no longer required: these are the most useful reports, and they get fixed first. Name the procedure and, if you can, the line concerned.</p>
+          <div class="callout">
+            <span class="callout-tag mono">Independence</span>
+            <p>infoConsulat is an independent app, made by a national for the Algerian community of Montréal. It is <strong>neither published nor endorsed by the Consulate General of Algeria in Montréal</strong>. Its information comes from the Consulate's public website and may change; when in doubt, contact the Consulate directly.</p>
+          </div>
+        </section>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap mono">
+      <span>© 2026 Adam Rais — Montréal, Québec</span>
+      <ul class="foot-links">
+        <li><a href="/"><span class="l-fr">Accueil</span><span class="l-en">Home</span></a></li>
+        <li><a href="privacy-infoconsulat.html"><span class="l-fr">Confidentialité</span><span class="l-en">Privacy</span></a></li>
+        <li><a href="mailto:adamrais14@gmail.com"><span class="l-fr">Courriel</span><span class="l-en">Email</span></a></li>
+      </ul>
+      <span><span class="l-fr">Mise à jour — 10.09.2026</span><span class="l-en">Updated — 10.09.2026</span></span>
+    </div>
+  </footer>
+
+  <script src="assets/lang.js"></script>
+
+</body>
+</html>

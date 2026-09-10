@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Adam Rais — iOS Developer, Montréal</title>
-  <meta name="description" content="iOS apps by Adam Rais — a Montréal developer turning public data into everyday tools: gas prices in Québec, the STM metro, and Algerian consular paperwork." />
+  <meta name="description" content="iOS apps by Adam Rais — a Montréal developer turning public data into everyday tools: gas prices in Québec, the STM metro, and Algerian consular paperwork. Applications iOS conçues à Montréal." />
   <meta name="theme-color" content="#F4F1EA" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Adam Rais — iOS Developer, Montréal" />
@@ -13,6 +13,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    /* Settles the language before first paint, so arriving never flashes the
+       wrong one. A stored choice wins; failing that, the browser's own. */
+    (function () {
+      var l;
+      try { l = localStorage.getItem('lang'); } catch (e) {}
+      if (l !== 'fr' && l !== 'en') {
+        l = (navigator.language || 'en').toLowerCase().indexOf('fr') === 0 ? 'fr' : 'en';
+      }
+      document.documentElement.dataset.lang = l;
+      document.documentElement.lang = l === 'fr' ? 'fr-CA' : 'en';
+    })();
+  </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -30,6 +43,13 @@
       --display: 'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
       --mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
     }
+
+    /* ── Bilingual switch ───────────────────────────────────────
+       Both languages ship in the markup; the inactive one is taken
+       out of the flow. Only ever hidden — never shown — so whatever
+       display the visible twin needs is left untouched.           */
+    html[data-lang="en"] .l-fr,
+    html[data-lang="fr"] .l-en { display: none !important; }
 
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
@@ -91,16 +111,21 @@
       white-space: nowrap;
     }
     .mark .rule-under { border-bottom: 3px solid var(--signal); padding-bottom: 1px; }
-    .mast-right { display: flex; align-items: center; gap: clamp(14px, 2.6vw, 30px); }
+    .mast-right { display: flex; align-items: center; gap: clamp(12px, 2.4vw, 28px); }
     .mast-right a { color: var(--ink-60); text-decoration: none; transition: color .2s; }
     .mast-right a:hover, .mast-right a:focus-visible { color: var(--signal); }
     .mast-meta { color: var(--ink-40); }
-    .live { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-40); }
-    .live::before {
-      content: ''; width: 6px; height: 6px; background: var(--signal);
-      animation: pulse 2.4s steps(1, end) infinite;
+
+    .langs { display: inline-flex; align-items: center; gap: 7px; color: var(--ink-40); }
+    .langs button {
+      font: inherit; letter-spacing: inherit; text-transform: inherit;
+      background: none; border: 0; padding: 2px 1px; cursor: pointer;
+      color: var(--ink-40); border-bottom: 2px solid transparent;
+      transition: color .2s, border-color .2s;
     }
-    @keyframes pulse { 0%, 60% { opacity: 1 } 61%, 100% { opacity: .25 } }
+    .langs button:hover { color: var(--ink); }
+    .langs button[aria-pressed="true"] { color: var(--signal); border-bottom-color: var(--signal); }
+    .langs .sep { opacity: .45; }
 
     /* ── Hero ──────────────────────────────────────────────────── */
     .hero .wrap { padding-block: clamp(48px, 9vw, 104px) clamp(30px, 5vw, 54px); }
@@ -239,7 +264,7 @@
 
     .facts { border-top: 1px solid var(--hair); margin-top: 16px; max-width: 34rem; transition: border-color .4s ease; }
     .fact { display: flex; gap: 14px; padding: 7px 0; border-bottom: 1px solid var(--hair); color: var(--fg-faint); transition: border-color .4s ease, color .4s ease; }
-    .fact dt { flex: 0 0 6.2rem; }
+    .fact dt { flex: 0 0 7.4rem; }
     .fact dd { color: var(--fg-soft); letter-spacing: .1em; }
 
     .acts { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; padding-top: 4px; }
@@ -249,7 +274,7 @@
       letter-spacing: .15em; text-transform: uppercase; text-decoration: none;
       color: var(--fg); padding-bottom: 4px;
       border-bottom: 1px solid var(--hair);
-      transition: color .25s, border-color .25s, gap .25s;
+      transition: color .25s, border-color .25s;
     }
     .act .arw { transition: transform .25s cubic-bezier(.22,.8,.24,1); }
     .act:hover, .act:focus-visible { color: var(--sig); border-color: var(--sig); }
@@ -272,7 +297,7 @@
       font-weight: 500; font-size: clamp(1.15rem, 2.5vw, 1.85rem);
       line-height: 1.28; letter-spacing: -.02em; max-width: 22ch;
     }
-    .statement + p { margin-top: 18px; color: var(--ink-60); font-size: .95rem; max-width: 46ch; }
+    .say { margin-top: 18px; color: var(--ink-60); font-size: .95rem; max-width: 46ch; }
     .contact { border-top: 1px solid var(--rule-hard); }
     .contact a {
       display: flex; align-items: baseline; justify-content: space-between; gap: 14px;
@@ -297,8 +322,9 @@
 
     /* ── Load choreography ─────────────────────────────────────── */
     .headline .line > span { transform: translateY(105%); animation: rise .95s cubic-bezier(.16,1,.3,1) forwards; }
-    .headline .line:nth-child(2) > span { animation-delay: .09s; }
-    .headline .line:nth-child(3) > span { animation-delay: .18s; }
+    .headline .dl2 > span { animation-delay: .09s; }
+    .headline .dl3 > span { animation-delay: .18s; }
+    .headline .dl4 > span { animation-delay: .27s; }
     @keyframes rise { to { transform: translateY(0); } }
 
     .fade { opacity: 0; animation: fade .8s ease forwards; }
@@ -323,7 +349,7 @@
       .entry-inner { grid-template-columns: 1.9rem minmax(0, 1fr); }
       .glyph { grid-row: 1; grid-column: 2; margin-bottom: 14px; }
       .entry-body { grid-column: 2; }
-      .fact dt { flex-basis: 5.2rem; }
+      .fact dt { flex-basis: 6rem; }
       .headline { font-size: clamp(2.1rem, 11vw, 3.4rem); }
     }
 
@@ -344,7 +370,11 @@
         <span class="mast-meta">Montréal · QC</span>
         <a href="#index">Index</a>
         <a href="#colophon">Colophon</a>
-        <span class="live">Shipping</span>
+        <span class="langs" role="group" aria-label="Language / Langue">
+          <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+          <span class="sep" aria-hidden="true">/</span>
+          <button type="button" data-set-lang="fr" aria-pressed="false">FR</button>
+        </span>
       </div>
     </div>
   </header>
@@ -355,29 +385,55 @@
       <div class="wrap">
 
         <div class="folio mono fade">
-          <span>Folio 01 — iOS Portfolio</span>
-          <span>Four apps — MMXXVI</span>
+          <span><span class="l-en">Folio 01 — iOS Portfolio</span><span class="l-fr">Folio 01 — Portfolio iOS</span></span>
+          <span><span class="l-en">Four apps — MMXXVI</span><span class="l-fr">Quatre applications — MMXXVI</span></span>
         </div>
 
         <div class="hero-grid">
-          <h1 class="headline">
-            <span class="line"><span>I build iOS apps</span></span>
-            <span class="line"><span>for <span class="hl">public data</span></span></span>
-            <span class="line"><span>in Montréal.</span></span>
-          </h1>
+          <div>
+            <h1 class="headline l-en">
+              <span class="line dl1"><span>I build iOS apps</span></span>
+              <span class="line dl2"><span>for <span class="hl">public data</span></span></span>
+              <span class="line dl3"><span>in Montréal.</span></span>
+            </h1>
+            <h1 class="headline l-fr">
+              <span class="line dl1"><span>Je fais des</span></span>
+              <span class="line dl2"><span>apps iOS pour les</span></span>
+              <span class="line dl3"><span class="hl">données publiques</span></span>
+              <span class="line dl4"><span>à Montréal.</span></span>
+            </h1>
+          </div>
 
           <div class="note fade d1">
-            <span class="note-tag mono">Scope</span>
-            <p>Gas prices from the <em>Régie de l'énergie</em>. The <em>STM</em> metro. Paperwork at the <em>Algerian Consulate</em>. Information that already exists in public, made usable on a phone.</p>
-            <p>Built solo in Montréal — Swift, SwiftUI, no trackers, no accounts.</p>
+            <span class="note-tag mono"><span class="l-en">Scope</span><span class="l-fr">Champ</span></span>
+            <div class="l-en">
+              <p>Gas prices from the <em>Régie de l'énergie</em>. The <em>STM</em> metro. Paperwork at the <em>Algerian Consulate</em>. Information that already exists in public, made usable on a phone.</p>
+              <p>Built solo in Montréal — Swift, SwiftUI, no trackers, no accounts.</p>
+            </div>
+            <div class="l-fr">
+              <p>Les prix de l'essence de la <em>Régie de l'énergie</em>. Le métro de la <em>STM</em>. Les démarches du <em>Consulat d'Algérie</em>. De l'information déjà publique, rendue utilisable sur un téléphone.</p>
+              <p>Conçu seul à Montréal — Swift, SwiftUI, sans traqueurs, sans comptes.</p>
+            </div>
           </div>
         </div>
 
         <dl class="stats mono fade d2">
-          <div class="stat"><dt class="k">Shipped</dt><dd class="v">4 apps</dd></div>
-          <div class="stat"><dt class="k">Platform</dt><dd class="v">iOS 18+</dd></div>
-          <div class="stat"><dt class="k">Stack</dt><dd class="v">Swift · SwiftUI</dd></div>
-          <div class="stat"><dt class="k">Langues</dt><dd class="v">FR · EN</dd></div>
+          <div class="stat">
+            <dt class="k"><span class="l-en">Shipped</span><span class="l-fr">Publiées</span></dt>
+            <dd class="v">4 apps</dd>
+          </div>
+          <div class="stat">
+            <dt class="k"><span class="l-en">Platform</span><span class="l-fr">Plateforme</span></dt>
+            <dd class="v">iOS 18+</dd>
+          </div>
+          <div class="stat">
+            <dt class="k"><span class="l-en">Stack</span><span class="l-fr">Technologie</span></dt>
+            <dd class="v">Swift · SwiftUI</dd>
+          </div>
+          <div class="stat">
+            <dt class="k"><span class="l-en">Languages</span><span class="l-fr">Langues</span></dt>
+            <dd class="v">FR · EN</dd>
+          </div>
         </dl>
 
       </div>
@@ -386,29 +442,37 @@
     <section class="index" id="index">
       <div class="wrap">
         <div class="band-head">
-          <h2>Index of apps</h2>
-          <span class="mono">Newest first — 04 entries</span>
+          <h2><span class="l-en">Index of apps</span><span class="l-fr">Index des applications</span></h2>
+          <span class="mono"><span class="l-en">Newest first — 04 entries</span><span class="l-fr">Les plus récentes d'abord — 04 entrées</span></span>
         </div>
 
         <!-- 01 ─────────────────────────────────────────────────── -->
         <article class="entry bleed">
           <div class="entry-inner">
             <div class="num">01</div>
-            <div class="glyph"><img src="assets/infoconsulat-icon.png" alt="infoConsulat app icon" width="72" height="72" loading="lazy" /></div>
+            <div class="glyph"><img src="assets/infoconsulat-icon.png" alt="infoConsulat" width="72" height="72" loading="lazy" /></div>
             <div class="entry-body">
               <h3 class="entry-name">infoConsulat</h3>
-              <span class="role mono">Consular services · Montréal · Français</span>
-              <p class="entry-desc">Every dealing with the Consulate General of Algeria in Montréal, gathered into one French-language app. Recover an appointment from your email address when the confirmation never arrived, follow a biometric passport, CNIBE or national-service file, and fill the official forms in the app before sharing or printing them.</p>
-              <dl class="facts mono">
+              <span class="role mono"><span class="l-en">Consular services · Montréal · Français</span><span class="l-fr">Démarches consulaires · Montréal</span></span>
+              <p class="entry-desc l-en">Every dealing with the Consulate General of Algeria in Montréal, gathered into one French-language app. Recover an appointment from your email address when the confirmation never arrived, follow a biometric passport, CNIBE or national-service file, and fill the official forms in the app before sharing or printing them.</p>
+              <p class="entry-desc l-fr">Toutes les démarches du Consulat Général d'Algérie à Montréal réunies dans une seule application, en français. Retrouvez un rendez-vous à partir de votre adresse courriel quand la confirmation n'est jamais arrivée, suivez un dossier de passeport biométrique, de CNIBE ou votre position vis-à-vis du service national, et remplissez les formulaires officiels dans l'application avant de les partager ou de les imprimer.</p>
+              <dl class="facts mono l-en">
                 <div class="fact"><dt>Follows</dt><dd>Passport · CNIBE · Service national · 12S</dd></div>
                 <div class="fact"><dt>Source</dt><dd>Consulate tracking services</dd></div>
                 <div class="fact"><dt>Price</dt><dd>Free</dd></div>
               </dl>
-              <p class="footnote">An independent app, made by a national for the Algerian community of Montréal. Not published or endorsed by the Consulate General of Algeria.</p>
+              <dl class="facts mono l-fr">
+                <div class="fact"><dt>Suit</dt><dd>Passeport · CNIBE · Service national · 12S</dd></div>
+                <div class="fact"><dt>Source</dt><dd>Services de suivi du Consulat</dd></div>
+                <div class="fact"><dt>Prix</dt><dd>Gratuit</dd></div>
+              </dl>
+              <p class="footnote l-en">An independent app, made by a national for the Algerian community of Montréal. Not published or endorsed by the Consulate General of Algeria.</p>
+              <p class="footnote l-fr">Application indépendante, réalisée par un ressortissant pour la communauté algérienne de Montréal. Ni éditée ni approuvée par le Consulat Général d'Algérie.</p>
             </div>
             <div class="acts">
-              <span class="chip mono">Coming soon</span>
-              <a class="act" href="mailto:adamrais14@gmail.com?subject=infoConsulat%20—%20notify%20me%20at%20launch">Notify me <span class="arw">→</span></a>
+              <span class="chip mono"><span class="l-en">Coming soon</span><span class="l-fr">Bientôt disponible</span></span>
+              <a class="act" href="mailto:adamrais14@gmail.com?subject=infoConsulat"><span class="l-en">Notify me</span><span class="l-fr">Prévenez-moi</span> <span class="arw">→</span></a>
+              <a class="act" href="privacy-infoconsulat.html"><span class="l-en">Privacy</span><span class="l-fr">Confidentialité</span> <span class="arw">↗</span></a>
             </div>
           </div>
         </article>
@@ -417,20 +481,26 @@
         <article class="entry bleed">
           <div class="entry-inner">
             <div class="num">02</div>
-            <div class="glyph"><img src="assets/infoessence-icon.png" alt="infoEssence app icon" width="72" height="72" loading="lazy" /></div>
+            <div class="glyph"><img src="assets/infoessence-icon.png" alt="infoEssence" width="72" height="72" loading="lazy" /></div>
             <div class="entry-body">
               <h3 class="entry-name">infoEssence</h3>
-              <span class="role mono">Fuel prices · Québec</span>
-              <p class="entry-desc">Real-time gas prices across Québec. Find the cheapest station near you from the official Régie de l'énergie feed, refreshed every ten minutes — no login, no ads between you and the number.</p>
-              <dl class="facts mono">
+              <span class="role mono"><span class="l-en">Fuel prices · Québec</span><span class="l-fr">Prix de l'essence · Québec</span></span>
+              <p class="entry-desc l-en">Real-time gas prices across Québec. Find the cheapest station near you from the official Régie de l'énergie feed, refreshed every ten minutes — no login, no ads between you and the number.</p>
+              <p class="entry-desc l-fr">Les prix de l'essence en temps réel partout au Québec. Trouvez la station la moins chère près de vous à partir des données officielles de la Régie de l'énergie, actualisées toutes les dix minutes — sans compte, sans publicité entre vous et le prix.</p>
+              <dl class="facts mono l-en">
                 <div class="fact"><dt>Source</dt><dd>Régie de l'énergie du Québec</dd></div>
                 <div class="fact"><dt>Refresh</dt><dd>Every 10 minutes</dd></div>
                 <div class="fact"><dt>Price</dt><dd>Free</dd></div>
               </dl>
+              <dl class="facts mono l-fr">
+                <div class="fact"><dt>Source</dt><dd>Régie de l'énergie du Québec</dd></div>
+                <div class="fact"><dt>Actualisation</dt><dd>Toutes les 10 minutes</dd></div>
+                <div class="fact"><dt>Prix</dt><dd>Gratuit</dd></div>
+              </dl>
             </div>
             <div class="acts">
               <a class="act act-primary" href="https://apps.apple.com/ca/app/infoessence/id6761513458?l=fr-CA" target="_blank" rel="noopener">App Store <span class="arw">→</span></a>
-              <a class="act" href="https://infoessence.up.railway.app/index.html" target="_blank" rel="noopener">Website <span class="arw">↗</span></a>
+              <a class="act" href="https://infoessence.up.railway.app/index.html" target="_blank" rel="noopener"><span class="l-en">Website</span><span class="l-fr">Site web</span> <span class="arw">↗</span></a>
             </div>
           </div>
         </article>
@@ -439,20 +509,26 @@
         <article class="entry bleed">
           <div class="entry-inner">
             <div class="num">03</div>
-            <div class="glyph"><img src="assets/infometro-icon.png" alt="Info Métro app icon" width="72" height="72" loading="lazy" /></div>
+            <div class="glyph"><img src="assets/infometro-icon.png" alt="Info Métro" width="72" height="72" loading="lazy" /></div>
             <div class="entry-body">
               <h3 class="entry-name">Info Métro</h3>
-              <span class="role mono">Transit · STM · Montréal</span>
-              <p class="entry-desc">The STM metro at a glance: live line status, an interactive map and schedules, so you know whether to run for the train before you reach the turnstile.</p>
-              <dl class="facts mono">
+              <span class="role mono"><span class="l-en">Transit · STM · Montréal</span><span class="l-fr">Transport · STM · Montréal</span></span>
+              <p class="entry-desc l-en">The STM metro at a glance: live line status, an interactive map and schedules, so you know whether to run for the train before you reach the turnstile.</p>
+              <p class="entry-desc l-fr">Le métro de la STM d'un coup d'œil : l'état des lignes en direct, une carte interactive et les horaires, pour savoir s'il faut courir avant même d'arriver au tourniquet.</p>
+              <dl class="facts mono l-en">
                 <div class="fact"><dt>Source</dt><dd>Société de transport de Montréal</dd></div>
                 <div class="fact"><dt>Covers</dt><dd>4 lines · 68 stations</dd></div>
                 <div class="fact"><dt>Price</dt><dd>Free</dd></div>
               </dl>
+              <dl class="facts mono l-fr">
+                <div class="fact"><dt>Source</dt><dd>Société de transport de Montréal</dd></div>
+                <div class="fact"><dt>Couverture</dt><dd>4 lignes · 68 stations</dd></div>
+                <div class="fact"><dt>Prix</dt><dd>Gratuit</dd></div>
+              </dl>
             </div>
             <div class="acts">
               <a class="act act-primary" href="https://apps.apple.com/ca/app/infometro/id6757133462?l=fr-CA" target="_blank" rel="noopener">App Store <span class="arw">→</span></a>
-              <a class="act" href="https://adamrais.github.io/MontrealMetroApp-website/" target="_blank" rel="noopener">Website <span class="arw">↗</span></a>
+              <a class="act" href="https://adamrais.github.io/MontrealMetroApp-website/" target="_blank" rel="noopener"><span class="l-en">Website</span><span class="l-fr">Site web</span> <span class="arw">↗</span></a>
             </div>
           </div>
         </article>
@@ -461,14 +537,19 @@
         <article class="entry bleed">
           <div class="entry-inner">
             <div class="num">04</div>
-            <div class="glyph"><img src="assets/everdale-icon.png" alt="Everdale Wiki app icon" width="72" height="72" loading="lazy" /></div>
+            <div class="glyph"><img src="assets/everdale-icon.png" alt="Everdale Wiki" width="72" height="72" loading="lazy" /></div>
             <div class="entry-body">
               <h3 class="entry-name">Everdale Wiki</h3>
-              <span class="role mono">Companion guide · Game</span>
-              <p class="entry-desc">An unofficial companion for the Everdale village builder — items, buildings and strategy, browsable without leaving the game for a browser tab.</p>
-              <dl class="facts mono">
+              <span class="role mono"><span class="l-en">Companion guide · Game</span><span class="l-fr">Guide compagnon · Jeu</span></span>
+              <p class="entry-desc l-en">An unofficial companion for the Everdale village builder — items, buildings and strategy, browsable without leaving the game for a browser tab.</p>
+              <p class="entry-desc l-fr">Un compagnon non officiel pour le jeu de village Everdale — objets, bâtiments et stratégies, consultables sans quitter le jeu pour un onglet de navigateur.</p>
+              <dl class="facts mono l-en">
                 <div class="fact"><dt>Kind</dt><dd>Unofficial companion</dd></div>
                 <div class="fact"><dt>Price</dt><dd>Free</dd></div>
+              </dl>
+              <dl class="facts mono l-fr">
+                <div class="fact"><dt>Type</dt><dd>Compagnon non officiel</dd></div>
+                <div class="fact"><dt>Prix</dt><dd>Gratuit</dd></div>
               </dl>
             </div>
             <div class="acts">
@@ -484,30 +565,40 @@
       <div class="wrap">
         <div class="band-head">
           <h2>Colophon</h2>
-          <span class="mono">Contact · Legal</span>
+          <span class="mono"><span class="l-en">Contact · Legal</span><span class="l-fr">Contact · Mentions</span></span>
         </div>
 
         <div class="colophon-grid">
           <div>
-            <p class="statement">Independent iOS developer, working out of Montréal on tools for the place I live in.</p>
-            <p>Most of what I build starts the same way: a public dataset that exists but is painful to reach, and a phone that should have made it easy. If you have a question, feedback, or a dataset that deserves an app — write to me.</p>
+            <p class="statement l-en">Independent iOS developer, working out of Montréal on tools for the place I live in.</p>
+            <p class="statement l-fr">Développeur iOS indépendant, à Montréal, qui fabrique des outils pour la ville où il vit.</p>
+            <p class="say l-en">Most of what I build starts the same way: a public dataset that exists but is painful to reach, and a phone that should have made it easy. If you have a question, feedback, or a dataset that deserves an app — write to me.</p>
+            <p class="say l-fr">La plupart de mes projets commencent pareil : un jeu de données publiques qui existe déjà mais reste pénible à atteindre, et un téléphone qui aurait dû rendre la chose simple. Une question, un commentaire, un jeu de données qui mérite une application — écrivez-moi.</p>
           </div>
 
           <nav class="contact">
             <a href="mailto:adamrais14@gmail.com">
-              <span class="who">Email</span>
+              <span class="who"><span class="l-en">Email</span><span class="l-fr">Courriel</span></span>
               <span class="what">adamrais14@gmail.com</span>
             </a>
             <a href="https://github.com/adamrais" target="_blank" rel="noopener">
               <span class="who">Code</span>
               <span class="what">github.com/adamrais</span>
             </a>
+            <a href="privacy-infoconsulat.html">
+              <span class="who"><span class="l-en">Privacy</span><span class="l-fr">Confidentialité</span></span>
+              <span class="what">infoConsulat</span>
+            </a>
+            <a href="support-infoconsulat.html">
+              <span class="who"><span class="l-en">Support</span><span class="l-fr">Assistance</span></span>
+              <span class="what">infoConsulat</span>
+            </a>
             <a href="https://infoessence.up.railway.app/privacy.html" target="_blank" rel="noopener">
-              <span class="who">Privacy</span>
+              <span class="who"><span class="l-en">Privacy</span><span class="l-fr">Confidentialité</span></span>
               <span class="what">infoEssence</span>
             </a>
             <a href="https://adamrais.github.io/MontrealMetroApp-website/privacy.html" target="_blank" rel="noopener">
-              <span class="who">Privacy</span>
+              <span class="who"><span class="l-en">Privacy</span><span class="l-fr">Confidentialité</span></span>
               <span class="what">Info Métro</span>
             </a>
           </nav>
@@ -523,11 +614,34 @@
       <ul class="foot-links">
         <li><a href="#index">Index</a></li>
         <li><a href="#colophon">Colophon</a></li>
-        <li><a href="mailto:adamrais14@gmail.com">Email</a></li>
+        <li><a href="mailto:adamrais14@gmail.com"><span class="l-en">Email</span><span class="l-fr">Courriel</span></a></li>
       </ul>
-      <span>Set in Archivo &amp; IBM Plex Mono</span>
+      <span><span class="l-en">Set in Archivo &amp; IBM Plex Mono</span><span class="l-fr">Composé en Archivo et IBM Plex Mono</span></span>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var buttons = Array.prototype.slice.call(document.querySelectorAll('[data-set-lang]'));
+
+      function apply(l) {
+        document.documentElement.dataset.lang = l;
+        document.documentElement.lang = l === 'fr' ? 'fr-CA' : 'en';
+        try { localStorage.setItem('lang', l); } catch (e) {}
+        buttons.forEach(function (b) {
+          b.setAttribute('aria-pressed', String(b.getAttribute('data-set-lang') === l));
+        });
+      }
+
+      buttons.forEach(function (b) {
+        b.addEventListener('click', function () { apply(b.getAttribute('data-set-lang')); });
+      });
+
+      // The head script already settled the language; re-run so the buttons
+      // agree with what is on screen and the choice is written down.
+      apply(document.documentElement.getAttribute('data-lang') === 'fr' ? 'fr' : 'en');
+    })();
+  </script>
 
 </body>
 </html>

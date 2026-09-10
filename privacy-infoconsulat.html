@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="fr-CA" data-lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Politique de confidentialité — infoConsulat</title>
+  <meta name="description" content="Politique de confidentialité de l'application infoConsulat, en français et en anglais : ce qui reste sur votre appareil, ce qui est envoyé aux services du Consulat, et les statistiques d'usage anonymes." />
+  <meta name="theme-color" content="#F4F1EA" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Politique de confidentialité — infoConsulat" />
+  <meta property="og:description" content="infoConsulat ne collecte aucune donnée personnelle. Votre profil et vos brouillons restent sur votre appareil." />
+  <link rel="icon" href="assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/doc.css" />
+  <script>
+    /* Settles the language before first paint. A stored choice wins; failing
+       that the browser's own, defaulting to French — the app's language. */
+    (function () {
+      var l;
+      try { l = localStorage.getItem('lang'); } catch (e) {}
+      if (l !== 'fr' && l !== 'en') {
+        l = (navigator.language || 'fr').toLowerCase().indexOf('en') === 0 ? 'en' : 'fr';
+      }
+      document.documentElement.dataset.lang = l;
+      document.documentElement.lang = l === 'fr' ? 'fr-CA' : 'en';
+    })();
+  </script>
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="wrap">
+      <a href="/" class="mark"><span class="rule-under">Adam Rais</span></a>
+      <div class="mast-right mono">
+        <span class="mast-meta">infoConsulat</span>
+        <a href="support-infoconsulat.html"><span class="l-fr">Assistance</span><span class="l-en">Support</span></a>
+        <a href="/"><span class="l-fr">Accueil</span><span class="l-en">Home</span></a>
+        <span class="langs" role="group" aria-label="Language / Langue">
+          <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+          <span class="sep" aria-hidden="true">/</span>
+          <button type="button" data-set-lang="fr" aria-pressed="true">FR</button>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main class="doc">
+    <div class="wrap">
+
+      <!-- ══════════════════ FRANÇAIS ══════════════════ -->
+      <div class="l-fr">
+
+        <div class="folio mono">
+          <span>infoConsulat — Document 01</span>
+          <span>Confidentialité</span>
+        </div>
+
+        <h1 class="doc-title">Politique de <span class="hl">confidentialité</span></h1>
+
+        <p class="doc-lede">infoConsulat ne collecte aucune donnée personnelle. Votre profil et vos brouillons restent sur votre appareil. Ce que vous saisissez dans un suivi est envoyé au site du Consulat pour effectuer la recherche, jamais à nous.</p>
+
+        <div class="stamp mono">
+          <span>En vigueur le <b>10 septembre 2026</b></span>
+          <span>Application <b>infoConsulat</b></span>
+          <span>Éditeur <b>Adam Rais</b></span>
+          <span>Version <b>1.0</b></span>
+        </div>
+
+        <section class="sec">
+          <h2 data-n="01">En bref</h2>
+          <p>infoConsulat est une application indépendante qui rassemble les démarches du Consulat Général d'Algérie à Montréal. Elle fonctionne <strong>sans compte, sans inscription et sans mot de passe</strong>.</p>
+          <ul>
+            <li>Aucune donnée personnelle ne nous est transmise, ni conservée sur un serveur nous appartenant — nous n'exploitons aucun serveur.</li>
+            <li>Ce que vous saisissez pour un suivi part de votre appareil <strong>directement vers le service de suivi concerné</strong>, exactement comme si vous remplissiez son formulaire dans un navigateur.</li>
+            <li>Votre profil consulaire et vos brouillons de formulaires <strong>ne quittent jamais l'appareil</strong>.</li>
+            <li>Seules des <strong>statistiques d'usage anonymes</strong> nous parviennent : elles ne contiennent ni nom, ni NIN, ni numéro de dossier, ni adresse courriel.</li>
+            <li>Aucune publicité, aucun traceur publicitaire, aucune revente de données, aucun suivi entre applications.</li>
+          </ul>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="02">Ce qui reste sur votre appareil</h2>
+          <p>Les informations suivantes sont enregistrées dans l'espace privé de l'application, sur votre iPhone seulement. Elles ne sont ni synchronisées, ni sauvegardées chez nous, ni accessibles à qui que ce soit d'autre.</p>
+          <div class="table">
+            <table>
+              <thead>
+                <tr><th scope="col">Élément</th><th scope="col">Contenu</th><th scope="col">Effacement</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Profil consulaire</td>
+                  <td>Nom, numéro d'immatriculation, circonscription, date de validité — saisis par vous, facultatifs.</td>
+                  <td>Modifiable et supprimable depuis l'onglet Profil.</td>
+                </tr>
+                <tr>
+                  <td>Brouillons de formulaires</td>
+                  <td>Ce que vous avez rempli dans un formulaire officiel avant de le partager ou de l'imprimer.</td>
+                  <td>Supprimable brouillon par brouillon.</td>
+                </tr>
+                <tr>
+                  <td>Formulaires téléchargés</td>
+                  <td>Les formulaires publics du Consulat, mis en cache pour être consultables hors ligne.</td>
+                  <td>Reconstitué au besoin ; sans donnée personnelle.</td>
+                </tr>
+                <tr>
+                  <td>Dernier résultat de suivi</td>
+                  <td>La dernière réponse d'un suivi, gardée pour vous éviter de tout ressaisir.</td>
+                  <td>Remplacé à la recherche suivante.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Désinstaller l'application efface l'ensemble de ces éléments de façon définitive.</p>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="03">Ce que vous envoyez aux services de suivi</h2>
+          <p>Quatre suivis interrogent, pour vous, un service public existant. Dans chaque cas, la requête part <strong>de votre appareil vers le service indiqué</strong> ; elle ne transite par aucun intermédiaire nous appartenant, et nous n'en conservons rien — ni la question, ni la réponse.</p>
+          <div class="table">
+            <table>
+              <thead>
+                <tr><th scope="col">Démarche</th><th scope="col">Ce qui est envoyé</th><th scope="col">Destinataire</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Rendez-vous</td><td>Votre adresse courriel</td><td><code>consulatalgeriemontreal.com</code></td></tr>
+                <tr><td>Passeport biométrique</td><td>Numéro de dossier et date de naissance</td><td><code>w2.cgam.ca</code></td></tr>
+                <tr><td>Carte nationale (CNIBE)</td><td>Numéro d'identifiant national (NIN)</td><td><code>consulatalgeriemontreal.com</code></td></tr>
+                <tr><td>Service national</td><td>Nom et prénom</td><td><code>w2.cgam.ca</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Ces services sont exploités par le Consulat Général d'Algérie à Montréal et les administrations algériennes, et non par nous. Le traitement de ce que vous leur envoyez relève de leurs propres règles.</p>
+
+          <div class="callout">
+            <span class="callout-tag mono">À savoir</span>
+            <p>Le service <code>w2.cgam.ca</code> — utilisé par les suivis passeport et service national — n'est publié qu'en <strong>HTTP</strong> : il refuse les connexions chiffrées. Ces deux requêtes voyagent donc en clair sur le réseau, comme lorsqu'on ouvre la même page dans un navigateur. Nous ne pouvons pas y remédier depuis l'application ; l'exception est limitée à cet hôte, tout le reste de l'application reste en HTTPS. Évitez ces deux suivis sur un réseau Wi-Fi public si cela vous préoccupe.</p>
+          </div>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="04">Statistiques d'usage anonymes</h2>
+          <p>Pour savoir si l'application sert à quelque chose et quelles démarches sont les plus consultées, elle envoie un petit nombre d'événements à <strong>PostHog</strong>, un service de mesure d'audience hébergé aux États-Unis. La liste est fermée : elle se limite à ceci.</p>
+          <ul>
+            <li><code>app_opened</code> — l'application est passée au premier plan.</li>
+            <li><code>suivi_searched</code> — un suivi a été lancé : lequel, et si la réponse était « trouvée », « vide » ou « en échec ».</li>
+            <li><code>suivi_portal_opened</code> — un portail externe a été ouvert depuis un suivi.</li>
+            <li><code>rendezvous_booking_opened</code> — la page de prise de rendez-vous a été ouverte.</li>
+            <li><code>service_opened</code> — une démarche a été consultée : son identifiant public.</li>
+            <li><code>form_opened</code> — un formulaire a été ouvert : son titre, tel que le Consulat le publie.</li>
+          </ul>
+          <p>Chaque valeur transmise est un booléen, un choix dans une liste fermée, ou un intitulé que le Consulat publie lui-même. <strong>Rien de ce que vous tapez, rien de ce que vous enregistrez et aucune réponse du Consulat n'y figure.</strong></p>
+          <p>Ces mesures sont anonymes par construction :</p>
+          <ul>
+            <li>Aucun profil n'est créé et aucun identifiant de personne n'est envoyé — il n'existe donc pas de fiche à consulter derrière ces événements.</li>
+            <li>La géolocalisation par adresse IP est <strong>désactivée</strong>, et l'adresse IP n'est pas conservée. Pour une application qui dessert une seule circonscription consulaire, une ville et un code postal s'approcheraient d'une adresse de domicile : nous ne les demandons pas.</li>
+            <li>Aucun enregistrement d'écran, aucune capture automatique des touchers, aucune lecture des libellés à l'écran : toutes ces options sont désactivées.</li>
+          </ul>
+          <p>« Utilisateurs actifs » désigne donc, ici, des installations qui ont ouvert l'application — c'est le maximum qu'une application ne demandant à personne de s'identifier puisse honnêtement affirmer.</p>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="05">Ce que l'application ne fait pas</h2>
+          <ul>
+            <li>Aucun compte, aucune inscription, aucun mot de passe.</li>
+            <li>Aucun accès à votre position, à vos contacts, à vos photos, à votre appareil photo ni à votre micro.</li>
+            <li>Aucune publicité et aucun réseau publicitaire.</li>
+            <li>Aucun suivi de votre activité dans d'autres applications ou sur d'autres sites. L'application ne demande pas l'autorisation de suivi d'Apple, parce qu'elle n'en a pas l'usage.</li>
+            <li>Aucune vente, location ou échange de données, à personne, dans aucune circonstance.</li>
+          </ul>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="06">Sites et services tiers</h2>
+          <p>Certaines démarches ne peuvent aboutir que sur le site de l'autorité qui les délivre. L'application vous y conduit alors dans votre navigateur ; à partir de ce moment, c'est la politique de confidentialité du site concerné qui s'applique.</p>
+          <ul>
+            <li>Consulat Général d'Algérie à Montréal — <code>consulatalgeriemontreal.com</code></li>
+            <li>Prise de rendez-vous, sur Microsoft Bookings — <code>bookings.cloud.microsoft</code></li>
+            <li>Ministère de l'Intérieur : passeport, CNIBE, permis de conduire — <code>passeport.interieur.gov.dz</code></li>
+            <li>Acte de naissance 12S — <code>demande12s.interieur.gov.dz</code></li>
+            <li>Caisse de retraite, affiliation volontaire — <code>teledeclaration.cnas.dz</code></li>
+          </ul>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="07">Conservation, droits et enfants</h2>
+          <p>Nous ne détenons aucune donnée personnelle vous concernant. Il n'y a donc rien à vous communiquer, à corriger ni à supprimer de notre côté : les droits d'accès, de rectification et de suppression prévus par la <strong>Loi 25</strong> (Québec), la <strong>LPRPDE</strong> (Canada) et le <strong>RGPD</strong> portent, dans le cas d'infoConsulat, sur des données qui restent en votre possession.</p>
+          <p>Pour effacer ce que l'application conserve localement : supprimez votre profil et vos brouillons depuis l'onglet Profil, ou désinstallez l'application, ce qui efface tout d'un coup.</p>
+          <p>Pour ce que détiennent le Consulat ou les administrations algériennes à la suite d'une de vos démarches, adressez-vous directement à eux.</p>
+          <p>L'application ne s'adresse pas aux enfants et ne leur demande sciemment aucune information.</p>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="08">Modifications</h2>
+          <p>Si l'application se met à traiter des informations autrement, cette page sera modifiée avant la mise à jour concernée, et la date d'entrée en vigueur en haut de page changera. Les versions antérieures restent consultables dans l'historique public du dépôt de ce site.</p>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="09">Nous joindre</h2>
+          <p>Pour toute question sur cette politique, sur ce que l'application enregistre, ou pour signaler une erreur :</p>
+          <div class="rows">
+            <a href="mailto:adamrais14@gmail.com?subject=infoConsulat%20—%20confidentialit%C3%A9">
+              <span class="who">Courriel</span>
+              <span class="what">adamrais14@gmail.com</span>
+            </a>
+            <a href="support-infoconsulat.html">
+              <span class="who">Assistance</span>
+              <span class="what">Page d'assistance infoConsulat</span>
+            </a>
+            <div class="row">
+              <span class="who">Éditeur</span>
+              <span class="what">Adam Rais — Montréal, Québec, Canada</span>
+            </div>
+          </div>
+
+          <div class="callout">
+            <span class="callout-tag mono">Indépendance</span>
+            <p>infoConsulat est une application indépendante, réalisée par un ressortissant pour la communauté algérienne de Montréal. Elle <strong>n'est ni éditée ni approuvée par le Consulat Général d'Algérie à Montréal</strong>. Les informations proviennent de son site public et peuvent évoluer ; en cas de doute, contactez directement le Consulat.</p>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- ══════════════════ ENGLISH ══════════════════ -->
+      <div class="l-en">
+
+        <div class="folio mono">
+          <span>infoConsulat — Document 01</span>
+          <span>Privacy</span>
+        </div>
+
+        <h1 class="doc-title">Privacy <span class="hl">policy</span></h1>
+
+        <p class="doc-lede">infoConsulat collects no personal data. Your profile and your drafts stay on your device. What you type into a lookup is sent to the Consulate's own service to run the search — never to us.</p>
+
+        <div class="stamp mono">
+          <span>Effective <b>10 September 2026</b></span>
+          <span>App <b>infoConsulat</b></span>
+          <span>Publisher <b>Adam Rais</b></span>
+          <span>Version <b>1.0</b></span>
+        </div>
+
+        <section class="sec">
+          <h2 data-n="01">In short</h2>
+          <p>infoConsulat is an independent app that gathers the procedures of the Consulate General of Algeria in Montréal. It works <strong>with no account, no sign-up and no password</strong>.</p>
+          <ul>
+            <li>No personal data reaches us, and none is held on any server of ours — we run no server.</li>
+            <li>What you type for a lookup leaves your device <strong>straight for the tracking service concerned</strong>, exactly as if you had filled in its form in a browser.</li>
+            <li>Your consular profile and your form drafts <strong>never leave the device</strong>.</li>
+            <li>Only <strong>anonymous usage statistics</strong> reach us: they contain no name, no NIN, no file number and no email address.</li>
+            <li>No advertising, no ad trackers, no sale of data, no cross-app tracking.</li>
+          </ul>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="02">What stays on your device</h2>
+          <p>The following is stored in the app's private space, on your iPhone only. It is not synchronised, not backed up to us, and not accessible to anyone else.</p>
+          <div class="table">
+            <table>
+              <thead>
+                <tr><th scope="col">Item</th><th scope="col">Contents</th><th scope="col">Deletion</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Consular profile</td>
+                  <td>Name, registration number, circonscription, expiry date — entered by you, all optional.</td>
+                  <td>Editable and deletable from the Profil tab.</td>
+                </tr>
+                <tr>
+                  <td>Form drafts</td>
+                  <td>What you filled into an official form before sharing or printing it.</td>
+                  <td>Deletable draft by draft.</td>
+                </tr>
+                <tr>
+                  <td>Downloaded forms</td>
+                  <td>The Consulate's public forms, cached so they can be read offline.</td>
+                  <td>Rebuilt on demand; holds no personal data.</td>
+                </tr>
+                <tr>
+                  <td>Last lookup result</td>
+                  <td>The most recent answer to a lookup, kept so you need not retype everything.</td>
+                  <td>Replaced by the next search.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Deleting the app erases all of it, permanently.</p>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="03">What you send to the tracking services</h2>
+          <p>Four lookups query an existing public service on your behalf. In each case the request goes <strong>from your device to the service named</strong>; it passes through no intermediary of ours, and we keep none of it — neither the question nor the answer.</p>
+          <div class="table">
+            <table>
+              <thead>
+                <tr><th scope="col">Procedure</th><th scope="col">What is sent</th><th scope="col">Recipient</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Appointment</td><td>Your email address</td><td><code>consulatalgeriemontreal.com</code></td></tr>
+                <tr><td>Biometric passport</td><td>File number and date of birth</td><td><code>w2.cgam.ca</code></td></tr>
+                <tr><td>National ID card (CNIBE)</td><td>National identity number (NIN)</td><td><code>consulatalgeriemontreal.com</code></td></tr>
+                <tr><td>National service</td><td>Surname and given name</td><td><code>w2.cgam.ca</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>These services are operated by the Consulate General of Algeria in Montréal and by Algerian government bodies, not by us. What they do with what you send them is governed by their own rules.</p>
+
+          <div class="callout">
+            <span class="callout-tag mono">Worth knowing</span>
+            <p>The service at <code>w2.cgam.ca</code> — used by the passport and national-service lookups — is published over <strong>HTTP only</strong>: it refuses encrypted connections. Those two requests therefore travel unencrypted across the network, exactly as they would if you opened the same page in a browser. The app cannot fix this; the exception is scoped to that one host and everything else in the app stays on HTTPS. Avoid those two lookups on public Wi-Fi if that concerns you.</p>
+          </div>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="04">Anonymous usage statistics</h2>
+          <p>To know whether the app is of any use, and which procedures people come for, it sends a small number of events to <strong>PostHog</strong>, an analytics service hosted in the United States. The list is closed — it is limited to this.</p>
+          <ul>
+            <li><code>app_opened</code> — the app came to the foreground.</li>
+            <li><code>suivi_searched</code> — a lookup ran: which one, and whether the answer was "found", "empty" or "failed".</li>
+            <li><code>suivi_portal_opened</code> — an external portal was opened from a lookup.</li>
+            <li><code>rendezvous_booking_opened</code> — the appointment booking page was opened.</li>
+            <li><code>service_opened</code> — a procedure was viewed: its public identifier.</li>
+            <li><code>form_opened</code> — a form was opened: its title, as the Consulate publishes it.</li>
+          </ul>
+          <p>Every value sent is a boolean, a case from a closed list, or a heading the Consulate publishes itself. <strong>Nothing you type, nothing you save and no reply from the Consulate appears in any of it.</strong></p>
+          <p>These measurements are anonymous by construction:</p>
+          <ul>
+            <li>No profile is created and no person identifier is sent — there is no record to click through to behind these events.</li>
+            <li>IP-based geolocation is <strong>switched off</strong>, and the IP address is not retained. For an app serving a single consular district, a city and a postal code would come close to a home address: we do not ask for them.</li>
+            <li>No session replay, no automatic capture of taps, no reading of on-screen labels — all of it disabled.</li>
+          </ul>
+          <p>"Active users" here therefore means installations that opened the app — the most an app that asks nobody to identify themselves can honestly claim.</p>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="05">What the app does not do</h2>
+          <ul>
+            <li>No account, no sign-up, no password.</li>
+            <li>No access to your location, contacts, photos, camera or microphone.</li>
+            <li>No advertising and no ad networks.</li>
+            <li>No tracking of what you do in other apps or on other sites. The app does not ask for Apple's tracking permission, because it has no use for it.</li>
+            <li>No sale, rental or exchange of data, to anyone, under any circumstances.</li>
+          </ul>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="06">Third-party sites and services</h2>
+          <p>Some procedures can only be completed on the site of the authority that issues them. The app then sends you there in your browser; from that point on, that site's privacy policy applies.</p>
+          <ul>
+            <li>Consulate General of Algeria in Montréal — <code>consulatalgeriemontreal.com</code></li>
+            <li>Appointment booking, on Microsoft Bookings — <code>bookings.cloud.microsoft</code></li>
+            <li>Ministry of the Interior: passport, CNIBE, driving licence — <code>passeport.interieur.gov.dz</code></li>
+            <li>12S birth certificate — <code>demande12s.interieur.gov.dz</code></li>
+            <li>Pension fund, voluntary affiliation — <code>teledeclaration.cnas.dz</code></li>
+          </ul>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="07">Retention, rights and children</h2>
+          <p>We hold no personal data about you. There is therefore nothing on our side to disclose, correct or delete: the rights of access, rectification and erasure under <strong>Law 25</strong> (Québec), <strong>PIPEDA</strong> (Canada) and the <strong>GDPR</strong> apply, in infoConsulat's case, to data that stays in your possession.</p>
+          <p>To erase what the app keeps locally: delete your profile and drafts from the Profil tab, or delete the app, which clears everything at once.</p>
+          <p>For whatever the Consulate or Algerian government bodies hold as a result of one of your procedures, contact them directly.</p>
+          <p>The app is not directed at children and knowingly asks them for no information.</p>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="08">Changes</h2>
+          <p>If the app starts handling information differently, this page will be changed before the update concerned ships, and the effective date at the top will change with it. Earlier versions remain readable in this site's public repository history.</p>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="09">Contact</h2>
+          <p>For any question about this policy, about what the app stores, or to report an error:</p>
+          <div class="rows">
+            <a href="mailto:adamrais14@gmail.com?subject=infoConsulat%20—%20privacy">
+              <span class="who">Email</span>
+              <span class="what">adamrais14@gmail.com</span>
+            </a>
+            <a href="support-infoconsulat.html">
+              <span class="who">Support</span>
+              <span class="what">infoConsulat support page</span>
+            </a>
+            <div class="row">
+              <span class="who">Publisher</span>
+              <span class="what">Adam Rais — Montréal, Québec, Canada</span>
+            </div>
+          </div>
+
+          <div class="callout">
+            <span class="callout-tag mono">Independence</span>
+            <p>infoConsulat is an independent app, made by a national for the Algerian community of Montréal. It is <strong>neither published nor endorsed by the Consulate General of Algeria in Montréal</strong>. Its information comes from the Consulate's public website and may change; when in doubt, contact the Consulate directly.</p>
+          </div>
+        </section>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap mono">
+      <span>© 2026 Adam Rais — Montréal, Québec</span>
+      <ul class="foot-links">
+        <li><a href="/"><span class="l-fr">Accueil</span><span class="l-en">Home</span></a></li>
+        <li><a href="support-infoconsulat.html"><span class="l-fr">Assistance</span><span class="l-en">Support</span></a></li>
+        <li><a href="mailto:adamrais14@gmail.com"><span class="l-fr">Courriel</span><span class="l-en">Email</span></a></li>
+      </ul>
+      <span><span class="l-fr">Mise à jour — 10.09.2026</span><span class="l-en">Updated — 10.09.2026</span></span>
+    </div>
+  </footer>
+
+  <script src="assets/lang.js"></script>
+
+</body>
+</html>
