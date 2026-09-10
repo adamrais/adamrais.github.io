@@ -153,7 +153,8 @@
           <p>Chaque valeur transmise est un booléen, un choix dans une liste fermée, ou un intitulé que le Consulat publie lui-même. <strong>Rien de ce que vous tapez, rien de ce que vous enregistrez et aucune réponse du Consulat n'y figure.</strong></p>
           <p>Ces mesures sont anonymes par construction :</p>
           <ul>
-            <li>Aucun profil n'est créé et aucun identifiant de personne n'est envoyé — il n'existe donc pas de fiche à consulter derrière ces événements.</li>
+            <li>Aucun profil n'est créé et aucun identifiant de personne n'est envoyé : ni nom, ni courriel, ni compte. Chaque installation porte en revanche un <strong>identifiant aléatoire</strong>, tiré sur l'appareil, qui accompagne les événements — c'est lui qui permet de compter des installations plutôt que de simples ouvertures. Il n'est rattaché à aucune identité, n'est partagé avec aucune autre application, et disparaît lorsque vous désinstallez infoConsulat.</li>
+            <li>Chaque événement porte aussi le contexte technique que la bibliothèque ajoute d'elle-même : modèle d'appareil, version d'iOS, version de l'application, langue, fuseau horaire, taille d'écran et type de connexion. Rien de tout cela ne vous désigne.</li>
             <li>La géolocalisation par adresse IP est <strong>désactivée</strong>, et l'adresse IP n'est pas conservée. Pour une application qui dessert une seule circonscription consulaire, une ville et un code postal s'approcheraient d'une adresse de domicile : nous ne les demandons pas.</li>
             <li>Aucun enregistrement d'écran, aucune capture automatique des touchers, aucune lecture des libellés à l'écran : toutes ces options sont désactivées.</li>
           </ul>
@@ -326,7 +327,8 @@
           <p>Every value sent is a boolean, a case from a closed list, or a heading the Consulate publishes itself. <strong>Nothing you type, nothing you save and no reply from the Consulate appears in any of it.</strong></p>
           <p>These measurements are anonymous by construction:</p>
           <ul>
-            <li>No profile is created and no person identifier is sent — there is no record to click through to behind these events.</li>
+            <li>No profile is created and no person identifier is sent: no name, no email, no account. Each installation does carry a <strong>random identifier</strong>, generated on the device, which travels with the events — it is what makes counting installations possible rather than bare launches. It is attached to no identity, shared with no other app, and disappears when you delete infoConsulat.</li>
+            <li>Each event also carries the technical context the library adds by itself: device model, iOS version, app version, language, time zone, screen size and connection type. None of it identifies you.</li>
             <li>IP-based geolocation is <strong>switched off</strong>, and the IP address is not retained. For an app serving a single consular district, a city and a postal code would come close to a home address: we do not ask for them.</li>
             <li>No session replay, no automatic capture of taps, no reading of on-screen labels — all of it disabled.</li>
           </ul>
