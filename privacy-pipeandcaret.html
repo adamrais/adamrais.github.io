@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy policy — Pipe &amp; Caret</title>
+  <meta name="description" content="Privacy policy for the Pipe &amp; Caret iPhone puzzle game, in English and French: no account, no ads, no tracking; optional anonymous gameplay statistics and crash reports you can turn off." />
+  <meta name="theme-color" content="#F4F1EA" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Privacy policy — Pipe &amp; Caret" />
+  <meta property="og:description" content="No account, no ads, no tracking. Pipe &amp; Caret sends only anonymous gameplay statistics and crash reports, and you can turn them off." />
+  <link rel="icon" href="assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/doc.css" />
+  <script>
+    /* Settles the language before first paint. A stored choice wins; failing
+       that the browser's own, defaulting to English. */
+    (function () {
+      var l;
+      try { l = localStorage.getItem('lang'); } catch (e) {}
+      if (l !== 'fr' && l !== 'en') {
+        l = (navigator.language || 'en').toLowerCase().indexOf('fr') === 0 ? 'fr' : 'en';
+      }
+      document.documentElement.dataset.lang = l;
+      document.documentElement.lang = l === 'fr' ? 'fr-CA' : 'en';
+    })();
+  </script>
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="wrap">
+      <a href="/" class="mark"><span class="rule-under">Adam Rais</span></a>
+      <div class="mast-right mono">
+        <span class="mast-meta">Pipe &amp; Caret</span>
+        <a href="support-pipeandcaret.html"><span class="l-fr">Assistance</span><span class="l-en">Support</span></a>
+        <a href="/"><span class="l-fr">Accueil</span><span class="l-en">Home</span></a>
+        <span class="langs" role="group" aria-label="Language / Langue">
+          <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+          <span class="sep" aria-hidden="true">/</span>
+          <button type="button" data-set-lang="fr" aria-pressed="false">FR</button>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main class="doc">
+    <div class="wrap">
+
+      <!-- ══════════════════ ENGLISH ══════════════════ -->
+      <div class="l-en">
+
+        <div class="folio mono">
+          <span>Pipe &amp; Caret — Document 01</span>
+          <span>Privacy</span>
+        </div>
+
+        <h1 class="doc-title">Privacy <span class="hl">policy</span></h1>
+
+        <p class="doc-lede">Pipe &amp; Caret has no account, no ads and no tracking. To find the levels that are too hard and fix crashes, the game sends anonymous gameplay statistics and crash reports. Nothing in them says who you are, and you can turn them off in one tap.</p>
+
+        <div class="stamp mono">
+          <span>Effective <b>24 November 2026</b></span>
+          <span>App <b>Pipe &amp; Caret</b></span>
+          <span>Publisher <b>Adam Rais</b></span>
+          <span>Version <b>1.0</b></span>
+        </div>
+
+        <section class="sec">
+          <h2 data-n="01">In short</h2>
+          <p>Pipe &amp; Caret is a single-player puzzle game for iPhone. It works <strong>with no account, no sign-up and no password</strong>.</p>
+          <ul>
+            <li>Your progress and settings stay on your device.</li>
+            <li>The game sends <strong>anonymous</strong> gameplay statistics and crash reports, so I can see which levels are too hard and fix bugs. They contain no name, no email, no location and no IP address.</li>
+            <li>You can turn this off at any time: <strong>Settings → Share usage data</strong> in the game.</li>
+            <li>No advertising, no tracking across apps or websites, and no sale of data.</li>
+          </ul>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="02">What stays on your device</h2>
+          <p>The following is stored in the app's private space, on your device only. It is not sent to me, and no one else can access it.</p>
+          <div class="table">
+            <table>
+              <thead>
+                <tr><th scope="col">Item</th><th scope="col">Contents</th><th scope="col">Deletion</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Progress</td>
+                  <td>Stars and best results for story levels, On Call shifts and Expert puzzles.</td>
+                  <td>Erased when you delete the app.</td>
+                </tr>
+                <tr>
+                  <td>Hearts</td>
+                  <td>The time your next heart refills.</td>
+                  <td>Erased with the app.</td>
+                </tr>
+                <tr>
+                  <td>Settings</td>
+                  <td>Sound, haptics, Expert Mode, heart reminders, Share usage data, and which tips you have already seen.</td>
+                  <td>Changeable in the game; erased with the app.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>There is no cloud save in version 1.0. Deleting the app erases your progress permanently.</p>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="03">Anonymous gameplay statistics</h2>
+          <p>While <strong>Share usage data</strong> is on, the game sends short anonymous messages to <strong>PostHog</strong>, an analytics service, when you:</p>
+          <ul>
+            <li>open, close, install or update the app;</li>
+            <li>open a level, finish a test or a scored run, reveal a hint, or leave a level.</li>
+          </ul>
+          <p>Each message contains only: the level's number, the result of the run (stars, packets delivered, errors, time, parts used, whether par was met), the hint number, the app and iOS versions, the iPhone model and the game's language. Messages are grouped by a <strong>random number created when the app is installed</strong>. It is not linked to your name, your Apple Account or your device's identifiers, and deleting the app gives you a new one.</p>
+          <p>The game <strong>does not send</strong> your name, email, Apple Account, advertising identifier, contacts, location, timezone, the networks you are on, or the networks you build in the game. PostHog receives your IP address when the message arrives, like any web service, but is set to <strong>discard it immediately</strong> without working out a location from it.</p>
+          <p>These statistics are used only to improve the game: to spot levels that are too hard or too easy, and to see whether players come back.</p>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="04">Crash reports</h2>
+          <p>If the game crashes or freezes, it sends a technical report to <strong>Sentry</strong>, a crash-reporting service. The report says where in the game's code the problem happened, with the app and iOS versions, the iPhone model, memory and storage levels, and the last few things the app did, such as opening a screen. Sentry also counts sessions to measure how often the game crashes.</p>
+          <p>Reports contain no screenshots, no personal information and no IP address: Sentry is set to never store one. They are grouped by a random installation number, as above.</p>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="05">Your choice</h2>
+          <p>Turn off <strong>Settings → Share usage data</strong> in the game, and nothing more is sent, statistics or crash reports. Turn it back on whenever you like. The setting stays on your device.</p>
+          <p>Because the statistics are anonymous, I cannot tell which ones came from you. That is also why I can't look them up or delete them individually.</p>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="06">Where the data goes and how long it is kept</h2>
+          <div class="table">
+            <table>
+              <thead>
+                <tr><th scope="col">Service</th><th scope="col">Role</th><th scope="col">Location</th><th scope="col">Retention</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>PostHog Inc.</td>
+                  <td>Gameplay statistics</td>
+                  <td>United States</td>
+                  <td>As long as useful to improve the game, at most 2 years.</td>
+                </tr>
+                <tr>
+                  <td>Functional Software Inc. (Sentry)</td>
+                  <td>Crash reports</td>
+                  <td>United States</td>
+                  <td>Deleted automatically after at most 90 days.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Both services store data outside Québec and Canada. They process it only to provide their service to me, and neither uses it for advertising.</p>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="07">Reminders</h2>
+          <p>If you turn on <strong>Heart refill reminders</strong> and allow notifications, the game schedules a <strong>local reminder</strong> on your device for when a heart is back. It is created on your iPhone and is not sent through any server. You can turn it off in the game or in iOS Settings.</p>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="08">What the app does not do</h2>
+          <ul>
+            <li>No account, no sign-up, no password, no purchases.</li>
+            <li>No access to your location, contacts, photos, camera or microphone.</li>
+            <li>No advertising and no ad networks.</li>
+            <li>No tracking of what you do in other apps or on other sites. The game does not ask for Apple's tracking permission and has no use for it.</li>
+            <li>No sale, rental or exchange of data, to anyone, under any circumstances.</li>
+          </ul>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="09">Your rights and children</h2>
+          <p>Under <strong>Law 25</strong> (Québec), <strong>PIPEDA</strong> (Canada) and the <strong>GDPR</strong>, you can ask questions about your information, withdraw your consent and make a complaint. Withdrawing consent is the Share usage data switch. The person responsible for protecting personal information for this game is <strong>Adam Rais</strong>, reachable at the address below. In Québec you can also contact the <em>Commission d'accès à l'information</em>.</p>
+          <p>The game is not directed at children under 13 and does not knowingly collect personal information from anyone, children included.</p>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="10">Changes</h2>
+          <p>Features such as iCloud progress sync or Game Center leaderboards may come later. If the game starts handling information differently, this page will change before that update ships, and the effective date at the top will change with it. Earlier versions remain readable in this site's public repository history.</p>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="11">Contact</h2>
+          <p>For any question about this policy or about what the game sends:</p>
+          <div class="rows">
+            <a href="mailto:adamrais14@gmail.com?subject=Pipe%20%26%20Caret%20—%20privacy">
+              <span class="who">Email</span>
+              <span class="what">adamrais14@gmail.com</span>
+            </a>
+            <a href="support-pipeandcaret.html">
+              <span class="who">Support</span>
+              <span class="what">Pipe &amp; Caret support page</span>
+            </a>
+            <div class="row">
+              <span class="who">Publisher</span>
+              <span class="what">Adam Rais — Montréal, Québec, Canada</span>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- ══════════════════ FRANÇAIS ══════════════════ -->
+      <div class="l-fr">
+
+        <div class="folio mono">
+          <span>Pipe &amp; Caret — Document 01</span>
+          <span>Confidentialité</span>
+        </div>
+
+        <h1 class="doc-title">Politique de <span class="hl">confidentialité</span></h1>
+
+        <p class="doc-lede">Pipe &amp; Caret n'a ni compte, ni publicité, ni suivi. Pour repérer les niveaux trop difficiles et corriger les plantages, le jeu envoie des statistiques de jeu anonymes et des rapports de plantage. Rien dans ces données ne dit qui vous êtes, et vous pouvez les désactiver d'un geste.</p>
+
+        <div class="stamp mono">
+          <span>En vigueur le <b>24 novembre 2026</b></span>
+          <span>Application <b>Pipe &amp; Caret</b></span>
+          <span>Éditeur <b>Adam Rais</b></span>
+          <span>Version <b>1.0</b></span>
+        </div>
+
+        <section class="sec">
+          <h2 data-n="01">En bref</h2>
+          <p>Pipe &amp; Caret est un jeu de casse-tête iPhone à un joueur. Il fonctionne <strong>sans compte, sans inscription et sans mot de passe</strong>.</p>
+          <ul>
+            <li>Votre progression et vos réglages restent sur votre appareil.</li>
+            <li>Le jeu envoie des statistiques de jeu et des rapports de plantage <strong>anonymes</strong>, pour que je voie quels niveaux sont trop difficiles et que je corrige les bogues. Ils ne contiennent ni nom, ni courriel, ni position, ni adresse IP.</li>
+            <li>Vous pouvez les désactiver à tout moment : <strong>Réglages → Partager les données d’utilisation</strong>, dans le jeu.</li>
+            <li>Aucune publicité, aucun suivi entre applications ou sites, et aucune vente de données.</li>
+          </ul>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="02">Ce qui reste sur votre appareil</h2>
+          <p>Les informations suivantes sont enregistrées dans l'espace privé de l'application, sur votre appareil seulement. Elles ne me sont pas envoyées, et personne d'autre n'y a accès.</p>
+          <div class="table">
+            <table>
+              <thead>
+                <tr><th scope="col">Élément</th><th scope="col">Contenu</th><th scope="col">Effacement</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Progression</td>
+                  <td>Étoiles et meilleurs résultats des niveaux de l'histoire, des gardes du mode De garde et des casse-têtes experts.</td>
+                  <td>Effacée quand vous supprimez l'application.</td>
+                </tr>
+                <tr>
+                  <td>Cœurs</td>
+                  <td>L'heure à laquelle votre prochain cœur se recharge.</td>
+                  <td>Effacée avec l'application.</td>
+                </tr>
+                <tr>
+                  <td>Réglages</td>
+                  <td>Son, vibrations, mode expert, rappels de recharge des cœurs, partage des données d’utilisation, et les conseils déjà vus.</td>
+                  <td>Modifiables dans le jeu; effacés avec l'application.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>La version 1.0 n'a pas de sauvegarde en ligne. Supprimer l'application efface définitivement votre progression.</p>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="03">Statistiques de jeu anonymes</h2>
+          <p>Tant que <strong>Partager les données d’utilisation</strong> est activé, le jeu envoie de courts messages anonymes à <strong>PostHog</strong>, un service de statistiques, quand vous :</p>
+          <ul>
+            <li>ouvrez, fermez, installez ou mettez à jour l'application;</li>
+            <li>ouvrez un niveau, terminez un essai ou une partie notée, affichez un indice, ou quittez un niveau.</li>
+          </ul>
+          <p>Chaque message contient seulement : le numéro du niveau, le résultat de la partie (étoiles, paquets livrés, erreurs, temps, pièces utilisées, normale atteinte ou non), le numéro de l'indice, les versions de l'application et d'iOS, le modèle d'iPhone et la langue du jeu. Les messages sont regroupés par un <strong>numéro aléatoire créé à l'installation</strong>. Il n'est lié ni à votre nom, ni à votre compte Apple, ni aux identifiants de votre appareil, et supprimer l'application vous en donne un nouveau.</p>
+          <p>Le jeu <strong>n'envoie pas</strong> votre nom, votre courriel, votre compte Apple, votre identifiant publicitaire, vos contacts, votre position, votre fuseau horaire, les réseaux auxquels vous êtes connecté, ni les réseaux que vous construisez dans le jeu. PostHog reçoit votre adresse IP à l'arrivée du message, comme tout service web, mais il est configuré pour <strong>la supprimer aussitôt</strong>, sans en déduire de position.</p>
+          <p>Ces statistiques servent uniquement à améliorer le jeu : repérer les niveaux trop difficiles ou trop faciles, et voir si les joueurs reviennent.</p>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="04">Rapports de plantage</h2>
+          <p>Si le jeu plante ou se fige, il envoie un rapport technique à <strong>Sentry</strong>, un service de rapports de plantage. Le rapport indique à quel endroit du code le problème est survenu, avec les versions de l'application et d'iOS, le modèle d'iPhone, l'état de la mémoire et du stockage, et les dernières actions de l'application, comme l'ouverture d'un écran. Sentry compte aussi les sessions pour mesurer la fréquence des plantages.</p>
+          <p>Les rapports ne contiennent ni capture d'écran, ni renseignement personnel, ni adresse IP : Sentry est configuré pour ne jamais en conserver. Ils sont regroupés par un numéro d'installation aléatoire, comme ci-dessus.</p>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="05">Votre choix</h2>
+          <p>Désactivez <strong>Réglages → Partager les données d’utilisation</strong> dans le jeu, et plus rien n'est envoyé, ni statistiques ni rapports de plantage. Réactivez-le quand vous voulez. Ce réglage reste sur votre appareil.</p>
+          <p>Comme les statistiques sont anonymes, je ne peux pas savoir lesquelles viennent de vous. C'est aussi pourquoi je ne peux pas les retrouver ni les supprimer une à une.</p>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="06">Où vont les données et combien de temps elles sont conservées</h2>
+          <div class="table">
+            <table>
+              <thead>
+                <tr><th scope="col">Service</th><th scope="col">Rôle</th><th scope="col">Lieu</th><th scope="col">Conservation</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>PostHog Inc.</td>
+                  <td>Statistiques de jeu</td>
+                  <td>États-Unis</td>
+                  <td>Tant qu'elles servent à améliorer le jeu, au plus 2 ans.</td>
+                </tr>
+                <tr>
+                  <td>Functional Software Inc. (Sentry)</td>
+                  <td>Rapports de plantage</td>
+                  <td>États-Unis</td>
+                  <td>Supprimés automatiquement après 90 jours au plus.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Ces deux services conservent les données hors du Québec et du Canada. Ils les traitent uniquement pour me fournir leur service, et aucun ne les utilise à des fins publicitaires.</p>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="07">Rappels</h2>
+          <p>Si vous activez les <strong>rappels de recharge des cœurs</strong> et autorisez les notifications, le jeu programme un <strong>rappel local</strong> sur votre appareil pour le moment où un cœur revient. Il est créé sur votre iPhone et ne passe par aucun serveur. Vous pouvez le désactiver dans le jeu ou dans les Réglages d'iOS.</p>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="08">Ce que l'application ne fait pas</h2>
+          <ul>
+            <li>Aucun compte, aucune inscription, aucun mot de passe, aucun achat.</li>
+            <li>Aucun accès à votre position, à vos contacts, à vos photos, à votre appareil photo ni à votre micro.</li>
+            <li>Aucune publicité et aucun réseau publicitaire.</li>
+            <li>Aucun suivi de votre activité dans d'autres applications ou sur d'autres sites. Le jeu ne demande pas l'autorisation de suivi d'Apple et n'en a aucun usage.</li>
+            <li>Aucune vente, location ou échange de données, à personne, dans aucune circonstance.</li>
+          </ul>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="09">Vos droits et les enfants</h2>
+          <p>En vertu de la <strong>Loi 25</strong> (Québec), de la <strong>LPRPDE</strong> (Canada) et du <strong>RGPD</strong>, vous pouvez poser des questions sur vos renseignements, retirer votre consentement et porter plainte. Retirer votre consentement, c'est le réglage Partager les données d’utilisation. La personne responsable de la protection des renseignements personnels pour ce jeu est <strong>Adam Rais</strong>, joignable à l'adresse ci-dessous. Au Québec, vous pouvez aussi vous adresser à la Commission d'accès à l'information.</p>
+          <p>Le jeu ne s'adresse pas aux enfants de moins de 13 ans et ne recueille sciemment aucun renseignement personnel auprès de qui que ce soit, enfants compris.</p>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="10">Modifications</h2>
+          <p>Des fonctions comme la synchronisation de la progression avec iCloud ou des classements Game Center pourraient venir plus tard. Si le jeu se met à traiter des informations autrement, cette page sera modifiée avant la mise à jour concernée, et la date d'entrée en vigueur en haut de page changera. Les versions antérieures restent consultables dans l'historique public du dépôt de ce site.</p>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="11">Nous joindre</h2>
+          <p>Pour toute question sur cette politique ou sur ce que le jeu envoie :</p>
+          <div class="rows">
+            <a href="mailto:adamrais14@gmail.com?subject=Pipe%20%26%20Caret%20—%20confidentialit%C3%A9">
+              <span class="who">Courriel</span>
+              <span class="what">adamrais14@gmail.com</span>
+            </a>
+            <a href="support-pipeandcaret.html">
+              <span class="who">Assistance</span>
+              <span class="what">Page d'assistance Pipe &amp; Caret</span>
+            </a>
+            <div class="row">
+              <span class="who">Éditeur</span>
+              <span class="what">Adam Rais — Montréal, Québec, Canada</span>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap mono">
+      <span>© 2026 Adam Rais — Montréal, Québec</span>
+      <ul class="foot-links">
+        <li><a href="/"><span class="l-fr">Accueil</span><span class="l-en">Home</span></a></li>
+        <li><a href="support-pipeandcaret.html"><span class="l-fr">Assistance</span><span class="l-en">Support</span></a></li>
+        <li><a href="mailto:adamrais14@gmail.com"><span class="l-fr">Courriel</span><span class="l-en">Email</span></a></li>
+      </ul>
+      <span><span class="l-fr">Mise à jour — 24.11.2026</span><span class="l-en">Updated — 24.11.2026</span></span>
+    </div>
+  </footer>
+
+  <script src="assets/lang.js"></script>
+
+</body>
+</html>
