@@ -62,7 +62,7 @@
         <p class="doc-lede">Pipe &amp; Caret has no account, no ads and no tracking. To find the levels that are too hard and fix crashes, the game sends anonymous gameplay statistics and crash reports. Nothing in them says who you are, and you can turn them off in one tap.</p>
 
         <div class="stamp mono">
-          <span>Effective <b>24 November 2026</b></span>
+          <span>Effective <b>25 November 2026</b></span>
           <span>App <b>Pipe &amp; Caret</b></span>
           <span>Publisher <b>Adam Rais</b></span>
           <span>Version <b>1.0</b></span>
@@ -72,16 +72,16 @@
           <h2 data-n="01">In short</h2>
           <p>Pipe &amp; Caret is a single-player puzzle game for iPhone. It works <strong>with no account, no sign-up and no password</strong>.</p>
           <ul>
-            <li>Your progress and settings stay on your device.</li>
+            <li>Your progress is saved on your device and can sync through your iCloud account. Device settings and lives stay on the device.</li>
             <li>The game sends <strong>anonymous</strong> gameplay statistics and crash reports, so I can see which levels are too hard and fix bugs. They contain no name, no email, no location and no IP address.</li>
-            <li>You can turn this off at any time: <strong>Settings → Share usage data</strong> in the game.</li>
+            <li>You can turn this off at any time: in the game, open <strong>Settings → App Information → Privacy</strong> and turn off <strong>Share usage data</strong>.</li>
             <li>No advertising, no tracking across apps or websites, and no sale of data.</li>
           </ul>
         </section>
 
         <section class="sec">
           <h2 data-n="02">What stays on your device</h2>
-          <p>The following is stored in the app's private space, on your device only. It is not sent to me, and no one else can access it.</p>
+          <p>The following is stored in the app's private space on your device. It is not sent to me, and no one else can access it. Progress can also sync through your own iCloud account, as described below the table.</p>
           <div class="table">
             <table>
               <thead>
@@ -90,8 +90,8 @@
               <tbody>
                 <tr>
                   <td>Progress</td>
-                  <td>Stars and best results for story levels, On Call shifts and Expert puzzles.</td>
-                  <td>Erased when you delete the app.</td>
+                  <td>Stars and best results for story levels, On Call shifts, Expert puzzles and daily shifts, along with tutorials seen and Go Live attempt counts.</td>
+                  <td>Deleting the app removes the device copy. If iCloud sync was enabled, progress in your iCloud account can be restored when you reinstall.</td>
                 </tr>
                 <tr>
                   <td>Hearts</td>
@@ -100,13 +100,13 @@
                 </tr>
                 <tr>
                   <td>Settings</td>
-                  <td>Sound, haptics, Expert Mode, heart reminders, Share usage data, and which tips you have already seen.</td>
+                  <td>Sound, haptics, Expert Mode, heart and daily shift reminders, and Share usage data.</td>
                   <td>Changeable in the game; erased with the app.</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>There is no cloud save in version 1.0. Deleting the app erases your progress permanently.</p>
+          <p>Pipe &amp; Caret uses Apple’s iCloud key-value storage to sync eligible progress when iCloud is enabled for the app. I don’t receive your iCloud save or Apple Account details. You can turn off sync for the app in iOS Settings. An opted-in crash report may contain a message that the iCloud progress store ran out of room, with no save data or identifiers.</p>
         </section>
 
         <section class="sec">
@@ -116,7 +116,7 @@
             <li>open, close, install or update the app;</li>
             <li>open a level, finish a test or a scored run, reveal a hint, or leave a level.</li>
           </ul>
-          <p>Each message contains only: the level's number, the result of the run (stars, packets delivered, errors, time, parts used, whether par was met), the hint number, the app and iOS versions, the iPhone model and the game's language. Messages are grouped by a <strong>random number created when the app is installed</strong>. It is not linked to your name, your Apple Account or your device's identifiers, and deleting the app gives you a new one.</p>
+          <p>Each message contains only: the level's number, the result of the run (stars, packets delivered, errors, time, parts used, whether par was met), the hint number, for a daily shift its day number and your streak, the app and iOS versions, the iPhone model, the game's language, and whether the app came from TestFlight or the App Store. Messages are grouped by a <strong>random number created when the app is installed</strong>. It is not linked to your name, your Apple Account or your device's identifiers, and deleting the app gives you a new one.</p>
           <p>The game <strong>does not send</strong> your name, email, Apple Account, advertising identifier, contacts, location, timezone, the networks you are on, or the networks you build in the game. PostHog receives your IP address when the message arrives, like any web service, but is set to <strong>discard it immediately</strong> without working out a location from it.</p>
           <p>These statistics are used only to improve the game: to spot levels that are too hard or too easy, and to see whether players come back.</p>
         </section>
@@ -129,7 +129,7 @@
 
         <section class="sec">
           <h2 data-n="05">Your choice</h2>
-          <p>Turn off <strong>Settings → Share usage data</strong> in the game, and nothing more is sent, statistics or crash reports. Turn it back on whenever you like. The setting stays on your device.</p>
+          <p>In the game, open <strong>Settings → App Information → Privacy</strong> and turn off <strong>Share usage data</strong>, and nothing more is sent, statistics or crash reports. Turn it back on whenever you like. The setting stays on your device.</p>
           <p>Because the statistics are anonymous, I cannot tell which ones came from you. That is also why I can't look them up or delete them individually.</p>
         </section>
 
@@ -161,11 +161,16 @@
 
         <section class="sec">
           <h2 data-n="07">Reminders</h2>
-          <p>If you turn on <strong>Heart refill reminders</strong> and allow notifications, the game schedules a <strong>local reminder</strong> on your device for when a heart is back. It is created on your iPhone and is not sent through any server. You can turn it off in the game or in iOS Settings.</p>
+          <p>If you turn on <strong>Heart refill reminders</strong> or the <strong>Daily shift reminder</strong> and allow notifications, the game schedules a <strong>local reminder</strong> on your device, for when a heart is back or at the time you choose for the daily shift. It is created on your iPhone and is not sent through any server. You can turn it off in the game or in iOS Settings.</p>
         </section>
 
         <section class="sec">
-          <h2 data-n="08">What the app does not do</h2>
+          <h2 data-n="08">Game Center</h2>
+          <p>Game Center is optional. If you sign in to Game Center, Apple handles your achievement progress under its <a href="https://www.apple.com/legal/privacy/data/en/game-center/">Game Center privacy policy</a>, and Pipe &amp; Caret does not send Game Center account information or achievements to its analytics or crash-reporting services.</p>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="09">What the app does not do</h2>
           <ul>
             <li>No account, no sign-up, no password, no purchases.</li>
             <li>No access to your location, contacts, photos, camera or microphone.</li>
@@ -176,18 +181,18 @@
         </section>
 
         <section class="sec">
-          <h2 data-n="09">Your rights and children</h2>
+          <h2 data-n="10">Your rights and children</h2>
           <p>Under <strong>Law 25</strong> (Québec), <strong>PIPEDA</strong> (Canada) and the <strong>GDPR</strong>, you can ask questions about your information, withdraw your consent and make a complaint. Withdrawing consent is the Share usage data switch. The person responsible for protecting personal information for this game is <strong>Adam Rais</strong>, reachable at the address below. In Québec you can also contact the <em>Commission d'accès à l'information</em>.</p>
           <p>The game is not directed at children under 13 and does not knowingly collect personal information from anyone, children included.</p>
         </section>
 
         <section class="sec">
-          <h2 data-n="10">Changes</h2>
-          <p>Features such as iCloud progress sync or Game Center leaderboards may come later. If the game starts handling information differently, this page will change before that update ships, and the effective date at the top will change with it. Earlier versions remain readable in this site's public repository history.</p>
+          <h2 data-n="11">Changes</h2>
+          <p>If the game starts handling information differently, this page and its effective date will be updated before that change ships. Earlier versions remain readable in the site’s public repository history.</p>
         </section>
 
         <section class="sec">
-          <h2 data-n="11">Contact</h2>
+          <h2 data-n="12">Contact</h2>
           <p>For any question about this policy or about what the game sends:</p>
           <div class="rows">
             <a href="mailto:adamrais14@gmail.com?subject=Pipe%20%26%20Caret%20—%20privacy">
@@ -220,7 +225,7 @@
         <p class="doc-lede">Pipe &amp; Caret n'a ni compte, ni publicité, ni suivi. Pour repérer les niveaux trop difficiles et corriger les plantages, le jeu envoie des statistiques de jeu anonymes et des rapports de plantage. Rien dans ces données ne dit qui vous êtes, et vous pouvez les désactiver d'un geste.</p>
 
         <div class="stamp mono">
-          <span>En vigueur le <b>24 novembre 2026</b></span>
+          <span>En vigueur le <b>25 novembre 2026</b></span>
           <span>Application <b>Pipe &amp; Caret</b></span>
           <span>Éditeur <b>Adam Rais</b></span>
           <span>Version <b>1.0</b></span>
@@ -230,16 +235,16 @@
           <h2 data-n="01">En bref</h2>
           <p>Pipe &amp; Caret est un jeu de casse-tête iPhone à un joueur. Il fonctionne <strong>sans compte, sans inscription et sans mot de passe</strong>.</p>
           <ul>
-            <li>Votre progression et vos réglages restent sur votre appareil.</li>
+            <li>Votre progression est enregistrée sur votre appareil et peut être synchronisée avec votre compte iCloud. Vos réglages et vos vies restent sur l’appareil.</li>
             <li>Le jeu envoie des statistiques de jeu et des rapports de plantage <strong>anonymes</strong>, pour que je voie quels niveaux sont trop difficiles et que je corrige les bogues. Ils ne contiennent ni nom, ni courriel, ni position, ni adresse IP.</li>
-            <li>Vous pouvez les désactiver à tout moment : <strong>Réglages → Partager les données d’utilisation</strong>, dans le jeu.</li>
+            <li>Vous pouvez les désactiver à tout moment : dans le jeu, ouvrez <strong>Réglages → Application → Confidentialité</strong> et désactivez <strong>Partager les données d’utilisation</strong>.</li>
             <li>Aucune publicité, aucun suivi entre applications ou sites, et aucune vente de données.</li>
           </ul>
         </section>
 
         <section class="sec">
           <h2 data-n="02">Ce qui reste sur votre appareil</h2>
-          <p>Les informations suivantes sont enregistrées dans l'espace privé de l'application, sur votre appareil seulement. Elles ne me sont pas envoyées, et personne d'autre n'y a accès.</p>
+          <p>Les informations suivantes sont enregistrées dans l'espace privé de l'application, sur votre appareil. Elles ne me sont pas envoyées, et personne d'autre n'y a accès. La progression peut aussi être synchronisée avec votre propre compte iCloud, comme l’explique le texte sous le tableau.</p>
           <div class="table">
             <table>
               <thead>
@@ -248,8 +253,8 @@
               <tbody>
                 <tr>
                   <td>Progression</td>
-                  <td>Étoiles et meilleurs résultats des niveaux de l'histoire, des gardes du mode De garde et des casse-têtes experts.</td>
-                  <td>Effacée quand vous supprimez l'application.</td>
+                  <td>Étoiles et meilleurs résultats des niveaux de l’histoire, des gardes, des casse-têtes du mode Expert et des gardes du jour, ainsi que les tutoriels déjà vus et le nombre de tentatives en production.</td>
+                  <td>La suppression de l’application efface la copie sur l’appareil. Si la synchronisation iCloud était activée, la progression enregistrée dans votre compte iCloud peut être restaurée après la réinstallation.</td>
                 </tr>
                 <tr>
                   <td>Cœurs</td>
@@ -258,13 +263,13 @@
                 </tr>
                 <tr>
                   <td>Réglages</td>
-                  <td>Son, vibrations, mode expert, rappels de recharge des cœurs, partage des données d’utilisation, et les conseils déjà vus.</td>
+                  <td>Son, vibrations, mode expert, rappels de recharge des cœurs et de garde du jour, et partage des données d’utilisation.</td>
                   <td>Modifiables dans le jeu; effacés avec l'application.</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>La version 1.0 n'a pas de sauvegarde en ligne. Supprimer l'application efface définitivement votre progression.</p>
+          <p>Pipe &amp; Caret utilise le stockage iCloud d’Apple pour synchroniser la progression lorsque cette option est activée pour le jeu. Je ne reçois ni votre sauvegarde iCloud ni les renseignements de votre compte Apple. Vous pouvez désactiver la synchronisation dans les réglages d’iOS. Si vous partagez des données d’utilisation, un rapport de plantage peut signaler que le stockage de progression iCloud est plein, sans données de sauvegarde ni identifiants.</p>
         </section>
 
         <section class="sec">
@@ -274,7 +279,7 @@
             <li>ouvrez, fermez, installez ou mettez à jour l'application;</li>
             <li>ouvrez un niveau, terminez un essai ou une partie notée, affichez un indice, ou quittez un niveau.</li>
           </ul>
-          <p>Chaque message contient seulement : le numéro du niveau, le résultat de la partie (étoiles, paquets livrés, erreurs, temps, pièces utilisées, normale atteinte ou non), le numéro de l'indice, les versions de l'application et d'iOS, le modèle d'iPhone et la langue du jeu. Les messages sont regroupés par un <strong>numéro aléatoire créé à l'installation</strong>. Il n'est lié ni à votre nom, ni à votre compte Apple, ni aux identifiants de votre appareil, et supprimer l'application vous en donne un nouveau.</p>
+          <p>Chaque message contient seulement : le numéro du niveau, le résultat de la partie (étoiles, paquets livrés, erreurs, temps, pièces utilisées, normale atteinte ou non), le numéro de l'indice, pour une garde du jour son numéro de jour et votre série, les versions de l'application et d'iOS, le modèle d'iPhone, la langue du jeu, et si l’application vient de TestFlight ou de l’App Store. Les messages sont regroupés par un <strong>numéro aléatoire créé à l'installation</strong>. Il n'est lié ni à votre nom, ni à votre compte Apple, ni aux identifiants de votre appareil, et supprimer l'application vous en donne un nouveau.</p>
           <p>Le jeu <strong>n'envoie pas</strong> votre nom, votre courriel, votre compte Apple, votre identifiant publicitaire, vos contacts, votre position, votre fuseau horaire, les réseaux auxquels vous êtes connecté, ni les réseaux que vous construisez dans le jeu. PostHog reçoit votre adresse IP à l'arrivée du message, comme tout service web, mais il est configuré pour <strong>la supprimer aussitôt</strong>, sans en déduire de position.</p>
           <p>Ces statistiques servent uniquement à améliorer le jeu : repérer les niveaux trop difficiles ou trop faciles, et voir si les joueurs reviennent.</p>
         </section>
@@ -287,7 +292,7 @@
 
         <section class="sec">
           <h2 data-n="05">Votre choix</h2>
-          <p>Désactivez <strong>Réglages → Partager les données d’utilisation</strong> dans le jeu, et plus rien n'est envoyé, ni statistiques ni rapports de plantage. Réactivez-le quand vous voulez. Ce réglage reste sur votre appareil.</p>
+          <p>Dans le jeu, ouvrez <strong>Réglages → Application → Confidentialité</strong> et désactivez <strong>Partager les données d’utilisation</strong>, et plus rien n'est envoyé, ni statistiques ni rapports de plantage. Réactivez-le quand vous voulez. Ce réglage reste sur votre appareil.</p>
           <p>Comme les statistiques sont anonymes, je ne peux pas savoir lesquelles viennent de vous. C'est aussi pourquoi je ne peux pas les retrouver ni les supprimer une à une.</p>
         </section>
 
@@ -319,11 +324,16 @@
 
         <section class="sec">
           <h2 data-n="07">Rappels</h2>
-          <p>Si vous activez les <strong>rappels de recharge des cœurs</strong> et autorisez les notifications, le jeu programme un <strong>rappel local</strong> sur votre appareil pour le moment où un cœur revient. Il est créé sur votre iPhone et ne passe par aucun serveur. Vous pouvez le désactiver dans le jeu ou dans les Réglages d'iOS.</p>
+          <p>Si vous activez les <strong>rappels de recharge des cœurs</strong> ou le <strong>rappel de garde du jour</strong> et autorisez les notifications, le jeu programme un <strong>rappel local</strong> sur votre appareil, pour le moment où un cœur revient ou à l’heure choisie pour la garde du jour. Il est créé sur votre iPhone et ne passe par aucun serveur. Vous pouvez le désactiver dans le jeu ou dans les Réglages d'iOS.</p>
         </section>
 
         <section class="sec">
-          <h2 data-n="08">Ce que l'application ne fait pas</h2>
+          <h2 data-n="08">Game Center</h2>
+          <p>Game Center est facultatif. Si vous vous connectez à Game Center, Apple traite la progression de vos succès selon son <a href="https://www.apple.com/ca/fr/legal/privacy/data/fr-ca/game-center/">avis de confidentialité sur Game Center</a>, et Pipe &amp; Caret ne transmet ni les renseignements de votre compte Game Center ni vos succès à ses services d’analyse ou de rapport de plantage.</p>
+        </section>
+
+        <section class="sec">
+          <h2 data-n="09">Ce que l'application ne fait pas</h2>
           <ul>
             <li>Aucun compte, aucune inscription, aucun mot de passe, aucun achat.</li>
             <li>Aucun accès à votre position, à vos contacts, à vos photos, à votre appareil photo ni à votre micro.</li>
@@ -334,18 +344,18 @@
         </section>
 
         <section class="sec">
-          <h2 data-n="09">Vos droits et les enfants</h2>
+          <h2 data-n="10">Vos droits et les enfants</h2>
           <p>En vertu de la <strong>Loi 25</strong> (Québec), de la <strong>LPRPDE</strong> (Canada) et du <strong>RGPD</strong>, vous pouvez poser des questions sur vos renseignements, retirer votre consentement et porter plainte. Retirer votre consentement, c'est le réglage Partager les données d’utilisation. La personne responsable de la protection des renseignements personnels pour ce jeu est <strong>Adam Rais</strong>, joignable à l'adresse ci-dessous. Au Québec, vous pouvez aussi vous adresser à la Commission d'accès à l'information.</p>
           <p>Le jeu ne s'adresse pas aux enfants de moins de 13 ans et ne recueille sciemment aucun renseignement personnel auprès de qui que ce soit, enfants compris.</p>
         </section>
 
         <section class="sec">
-          <h2 data-n="10">Modifications</h2>
-          <p>Des fonctions comme la synchronisation de la progression avec iCloud ou des classements Game Center pourraient venir plus tard. Si le jeu se met à traiter des informations autrement, cette page sera modifiée avant la mise à jour concernée, et la date d'entrée en vigueur en haut de page changera. Les versions antérieures restent consultables dans l'historique public du dépôt de ce site.</p>
+          <h2 data-n="11">Modifications</h2>
+          <p>Si le jeu se met à traiter des renseignements autrement, cette page et sa date d’entrée en vigueur seront mises à jour avant l’entrée en vigueur du changement. Les versions antérieures restent consultables dans l’historique public du dépôt du site.</p>
         </section>
 
         <section class="sec">
-          <h2 data-n="11">Nous joindre</h2>
+          <h2 data-n="12">Nous joindre</h2>
           <p>Pour toute question sur cette politique ou sur ce que le jeu envoie :</p>
           <div class="rows">
             <a href="mailto:adamrais14@gmail.com?subject=Pipe%20%26%20Caret%20—%20confidentialit%C3%A9">
@@ -376,7 +386,7 @@
         <li><a href="support-pipeandcaret.html"><span class="l-fr">Assistance</span><span class="l-en">Support</span></a></li>
         <li><a href="mailto:adamrais14@gmail.com"><span class="l-fr">Courriel</span><span class="l-en">Email</span></a></li>
       </ul>
-      <span><span class="l-fr">Mise à jour — 24.11.2026</span><span class="l-en">Updated — 24.11.2026</span></span>
+      <span><span class="l-fr">Mise à jour — 25.11.2026</span><span class="l-en">Updated — 25.11.2026</span></span>
     </div>
   </footer>
 
